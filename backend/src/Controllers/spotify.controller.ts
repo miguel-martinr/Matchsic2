@@ -6,7 +6,7 @@ import {AuthorizationScope} from 'spotify-web-api-ts/types/types/SpotifyAuthoriz
 import {db} from '../Data/DB';
 import {UserModel} from '../Data/Models';
 import {spotifyService} from '../Services';
-
+import { config } from '../config';
 
 
 export const spotifyConnect = async (req: Request, res: Response) => {
@@ -53,10 +53,10 @@ export const spotifyCallback = async (req: Request, res: Response) => {
 
 // eslint-disable-next-line max-len
 const redirectToSpotifyCallback = async (res: Response, scopes: AuthorizationScope[]) => {
-  const redirectUri = process.env.SPOTIFY_REDIRECT_URI || '';
+  const redirectUri = config.env.SPOTIFY_REDIRECT_URI || '';
   return res.redirect('https://accounts.spotify.com/authorize' +
     '?response_type=code' +
-    '&client_id=' + process.env.SPOTIFY_CLIENT_ID +
+    '&client_id=' + config.env.SPOTIFY_CLIENT_ID +
     '&scope=' + encodeURIComponent(scopes.join(' ')) +
     '&redirect_uri=' + encodeURIComponent(redirectUri),
   );

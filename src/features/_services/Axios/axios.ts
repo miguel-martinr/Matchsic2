@@ -1,9 +1,10 @@
 import axios from "axios";
 import { store } from '../../store/store';
 import { loggedOut } from "../../store/storeSlice";
+import { config } from '../config';
 
 export const matchsicAxios = axios.create({
-  baseURL: 'http://localhost:3000/',
+  baseURL: config.server.baseURL,
   withCredentials: true,
 });
 

@@ -7,7 +7,7 @@ let databaseURL = '';
 if (config.mode === 'development') {
   databaseURL = 'mongodb://localhost:27017/matchsic';
 } else {
-  databaseURL = process.env.MONGODB_URL as string;
+  databaseURL = config.env.MONGODB_URL as string;
 }
 
 

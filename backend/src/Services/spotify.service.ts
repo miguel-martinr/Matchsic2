@@ -5,13 +5,14 @@ import {CurrentlyPlaying, Track} from 'spotify-web-api-ts/types/types/SpotifyObj
 import {SpotifyCredentials, UserModel} from '../Data/Models/user';
 import {MusicData} from '../types/music';
 import {Image} from '../types/util';
+import { config } from '../config';
 
 // eslint-disable-next-line max-len
 const getNewSpotifyCredentials = async (code: string): Promise<SpotifyCredentials> => {
   const spotify = new SpotifyWebApi({
-    clientId: process.env.SPOTIFY_CLIENT_ID,
-    clientSecret: process.env.SPOTIFY_CLIENT_SECRET,
-    redirectUri: process.env.SPOTIFY_REDIRECT_URI,
+    clientId: config.env.SPOTIFY_CLIENT_ID,
+    clientSecret: config.env.SPOTIFY_CLIENT_SECRET,
+    redirectUri: config.env.SPOTIFY_REDIRECT_URI,
   });
 
   const refreshableTokenResponse = await spotify.getRefreshableUserTokens(code);
@@ -30,9 +31,9 @@ const getNewSpotifyCredentials = async (code: string): Promise<SpotifyCredential
 // eslint-disable-next-line max-len
 const refreshAndUpdateToken = async (userId: string, refreshToken: string): Promise<string> => {
   const spotify = new SpotifyWebApi({
-    clientId: process.env.SPOTIFY_CLIENT_ID,
-    clientSecret: process.env.SPOTIFY_CLIENT_SECRET,
-    redirectUri: process.env.SPOTIFY_REDIRECT_URI,
+    clientId: config.env.SPOTIFY_CLIENT_ID,
+    clientSecret: config.env.SPOTIFY_CLIENT_SECRET,
+    redirectUri: config.env.SPOTIFY_REDIRECT_URI,
   });
 
 

@@ -1,7 +1,7 @@
 import { ActiveUserInterface } from "../../../backend/src/Data/Models/activeUsers";
 import { LocationData } from "../../../backend/src/types/location";
 import { matchsicAxios } from "./Axios/axios";
-
+import { config } from "./config";
 
 // const fakeDB = {
 //   users: [{username: 'Lena_00', password: '1234', name: 'Lena L.'}],
@@ -109,7 +109,7 @@ const getLocationFromBrowser = async () => {
 }
 
 const connectSpotify = () => {
-  window.location.href = 'http://localhost:3000/music/login';
+  window.location.href = config.server.baseURL + '/music/login';
 }
 
 export const userService = {

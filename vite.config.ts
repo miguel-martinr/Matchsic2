@@ -8,6 +8,6 @@ export default defineConfig({
     outDir: './backend/public',
   },
   server:{
-    port: 3000
+    port: 3002
   }
 })

@@ -1,7 +1,7 @@
 import {Request, Response} from 'express';
 import jwt from 'jsonwebtoken';
 import {verifyUserService} from '../Services';
-
+import { config } from '../config';
 
 
 export const getLogin = async (req: Request, res: Response) => {
@@ -16,7 +16,7 @@ export const getLogin = async (req: Request, res: Response) => {
 
 
     // eslint-disable-next-line max-len
-    const token = jwt.sign({id: existingUser._id}, (process.env.JWT_SECRET) as string, {
+    const token = jwt.sign({id: existingUser._id}, (config.env.JWT_SECRET) as string, {
       expiresIn: '30m',
     });
     return res
