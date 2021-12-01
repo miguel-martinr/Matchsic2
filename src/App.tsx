@@ -5,9 +5,7 @@ import { Route, Routes } from 'react-router-dom';
 
 
 // Login page
-import { LoginPage } from './features';
-import { RegisterPage } from './features/register/RegisterPage';
-import { HomePage } from './features/home/HomePage';
+import { LoginPage, ProfilePage, RegisterPage, HomePage } from './features';
 
 
 type UserToken = string | null;
@@ -40,7 +38,7 @@ function App() {
             <Fragment>
               <Route path='/' element={<HomePage />}>
                 <Route path='/' element={tempHome} />
-                <Route path='/profile' element={tempProfile} />
+                <Route path='/profile' element={<ProfilePage />} />
               </Route>
             </Fragment>
           )
