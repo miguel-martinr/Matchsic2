@@ -5,9 +5,7 @@ import { Route, Routes } from 'react-router-dom';
 
 
 // Login page
-import { LoginPage } from './features';
-import { RegisterPage } from './features/register/RegisterPage';
-import { HomePage } from './features/home/HomePage';
+import { LoginPage, ProfilePage, RegisterPage } from './features';
 
 
 type UserToken = string | null;
