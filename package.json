@@ -2,7 +2,7 @@
   "name": "matchsic",
   "version": "0.0.0",
   "scripts": {
-    "dev": "vite",
+    "dev": "vite --host",
     "build": "tsc && vite build",
     "serve": "vite preview",
     "backend/watch": "cd backend && tsc-watch --onSuccess \"node dist/index.js\""
@@ -12,13 +12,16 @@
   },
   "dependencies": {
     "@reduxjs/toolkit": "^1.6.2",
+    "bootstrap": "^5.0.2",
     "cors": "^2.8.5",
     "dotenv": "^10.0.0",
     "express": "^4.17.1",
     "mongoose": "^6.0.14",
     "react": "^17.0.0",
+    "react-bootstrap": "^2.0.3",
     "react-dom": "^17.0.0",
-    "react-redux": "^7.2.6"
+    "react-redux": "^7.2.6",
+    "react-router-dom": "^6.0.2"
   },
   "devDependencies": {
     "@types/express": "^4.17.13",
