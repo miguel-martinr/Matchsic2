@@ -38,7 +38,7 @@ function App() {
             <Fragment>
               <Route path='/' element={<HomePage />}>
                 <Route path='/' element={tempHome} />
-                <Route path='/profile' element={tempProfile} />
+                <Route path='/profile' element={<ProfilePage />} />
               </Route>
             </Fragment>
           )
