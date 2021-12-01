@@ -3,7 +3,7 @@ import { Col, Form, Row } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import { MatchsicButton } from '../MatchsicButton';
 import { MatchsicGreenBox } from '../MatchsicGreenBox';
-
+import classes from './LoginPage.module.css';
 interface LoginPageProps {
   setUserToken: (token: string) => void,
 }
@@ -56,7 +56,7 @@ export const LoginPage = (props: LoginPageProps) => {
       <Row className="pt-5"></Row> { /*Offset*/}
       <Row className="pt-5">
         <Col className="text-center">
-            <Link to="/register"><p>Registrarme</p></Link>
+            <Link to="/register" className={classes.registerLink}>Registrarme</Link>
         </Col>
       </Row>
     </MatchsicGreenBox>
