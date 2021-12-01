@@ -7,6 +7,7 @@ import { Route, Routes } from 'react-router-dom';
 // Login page
 import { LoginPage } from './features';
 import { RegisterPage } from './features/register/RegisterPage';
+import { HomePage } from './features/home/HomePage';
 
 
 type UserToken = string | null;
@@ -14,15 +15,16 @@ type UserToken = string | null;
 
 function App() {
   // Go to login if user is not logged in
-  const [userToken, setUserToken] = useState<UserToken>(null);
+  const [userToken, setUserToken] = useState<UserToken>("test");
 
 
-  const tempHome = <div>Matchsic home</div>;
+  
 
 
-  const loginPage = <LoginPage setUserToken={setUserToken}/>;
+  const loginPage = <LoginPage setUserToken={setUserToken} />;
   const registerPage = <RegisterPage></RegisterPage>;
-
+  const tempProfile = <div>Profile page</div>;
+  const tempHome = <div>Home page</div>;
   return (
     <Routes>
       {
@@ -33,10 +35,13 @@ function App() {
               <Route path='/register' element={registerPage} />
             </Fragment>
           )
-        :
+          :
           ( // User is logged in
             <Fragment>
-              <Route path='/' element={tempHome} />
+              <Route path='/' element={<HomePage />}>
+                <Route path='/' element={tempHome} />
+                <Route path='/profile' element={tempProfile} />
+              </Route>
             </Fragment>
           )
       }
