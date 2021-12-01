@@ -1,4 +1,5 @@
 import React from 'react';
+import { Col, Container, Row } from 'react-bootstrap';
 
 
 interface LoginPageProps {
@@ -7,6 +8,7 @@ interface LoginPageProps {
 
 const containerStyle: React.CSSProperties = {
   background: "#0BA55D",
+  height: "100vh",
 }
 
 const titleStyle: React.CSSProperties = {
@@ -18,14 +20,19 @@ const titleStyle: React.CSSProperties = {
 
 export const LoginPage = (props: LoginPageProps) => {
   return (
-    <div className="container-fluid vh-100" style={containerStyle}>
-      <div className="row pt-5"></div> { /*Offset*/}
+    <Container style={containerStyle} fluid>
 
-      <div className="row">
-        <div className="col text-center">
+      <Row className="pt-5"></Row> { /*Offset*/}
+      <Row className="pt-5"></Row> { /*Offset*/}
+
+      <Row>
+        <Col className="text-center">
           <h1 style={titleStyle}>Matchsic</h1>
-        </div>
-      </div>
-    </div>
+        </Col>
+      </Row>
+
+      
+
+    </Container>
   )
 }
