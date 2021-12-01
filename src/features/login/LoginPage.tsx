@@ -1,5 +1,6 @@
 import React from 'react';
 import { Col, Form, Row } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
 import { MatchsicButton } from '../MatchsicButton';
 import { MatchsicGreenBox } from '../MatchsicGreenBox';
 
@@ -48,6 +49,14 @@ export const LoginPage = (props: LoginPageProps) => {
             </Form.Group>
             <MatchsicButton text="Entrar" ></MatchsicButton>
           </Form>
+        </Col>
+      </Row>
+
+
+      <Row className="pt-5"></Row> { /*Offset*/}
+      <Row className="pt-5">
+        <Col className="text-center">
+            <Link to="/register"><p>Registrarme</p></Link>
         </Col>
       </Row>
     </MatchsicGreenBox>

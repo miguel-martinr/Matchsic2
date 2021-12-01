@@ -6,6 +6,7 @@ import { Route, Routes } from 'react-router-dom';
 
 // Login page
 import { LoginPage } from './features';
+import { RegisterPage } from './features/register/RegisterPage';
 
 
 type UserToken = string | null;
@@ -17,12 +18,11 @@ function App() {
 
 
   const tempHome = <div>Matchsic home</div>;
-  
 
-
-  const tempRegister = <div>Matchsic register</div>;
 
   const loginPage = <LoginPage setUserToken={setUserToken}/>;
+  const registerPage = <RegisterPage></RegisterPage>;
+
   return (
     <Routes>
       {
@@ -30,7 +30,7 @@ function App() {
           (
             <Fragment>
               <Route path='/' element={loginPage} />
-              <Route path='/register' element={tempRegister} />
+              <Route path='/register' element={registerPage} />
             </Fragment>
           )
         :
