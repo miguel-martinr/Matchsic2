@@ -8,20 +8,6 @@ interface LoginPageProps {
   setUserToken: (token: string) => void,
 }
 
-const containerStyle: React.CSSProperties = {
-  background: "#0BA55D",
-  height: "100vh",
-}
-
-const titleStyle: React.CSSProperties = {
-  fontSize: "3em",
-  fontWeight: "bold",
-  color: "white",
-}
-
-
-
-
 export const LoginPage = (props: LoginPageProps) => {
 
   const handleSubmit = (ev: React.FormEvent) => {
