@@ -1,7 +1,7 @@
 import React from 'react';
-import { Button, Col, Container, Form, Row } from 'react-bootstrap';
+import { Col, Container, Form, Row } from 'react-bootstrap';
 import { MatchsicButton } from '../MatchsicButton';
-
+import { BrowserRouter as Router, Link } from 'react-router-dom';
 
 interface LoginPageProps {
   setUserToken: (token: string) => void,
@@ -26,7 +26,7 @@ export const LoginPage = (props: LoginPageProps) => {
   const handleSubmit = (ev: React.FormEvent) => {
     ev.preventDefault();
     const form = ev.target as HTMLFormElement;
-    
+
     const usernameInput = form.elements.namedItem("username") as HTMLInputElement;
     const passwordInput = form.elements.namedItem("password") as HTMLInputElement;
 
@@ -37,7 +37,7 @@ export const LoginPage = (props: LoginPageProps) => {
 
     const [username, password] = [usernameInput.value, passwordInput.value];
     // Send login request to server
-    const token =  `${username}'s token`;
+    const token = `${username}'s token`;
 
     // if login successful, set user token in local storage
     props.setUserToken(token);
@@ -47,6 +47,7 @@ export const LoginPage = (props: LoginPageProps) => {
   }
 
   return (
+    
     <Container style={containerStyle} fluid>
 
       <Row className="pt-5"></Row> { /*Offset*/}
@@ -72,6 +73,16 @@ export const LoginPage = (props: LoginPageProps) => {
             </Form.Group>
             <MatchsicButton text="Entrar" ></MatchsicButton>
           </Form>
+        </Col>
+      </Row>
+
+
+      <Row className="pt-5"></Row> { /*Offset*/}
+      <Row className="pt-5">
+        <Col className="text-center">
+          
+            <Link to="/register">Registrarme</Link>
+          
         </Col>
       </Row>
 
