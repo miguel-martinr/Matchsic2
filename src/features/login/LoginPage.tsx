@@ -1,12 +1,12 @@
 import React from 'react';
-import { Col, Container, Form, Row } from 'react-bootstrap';
+import { Col, Form, Row } from 'react-bootstrap';
 import { MatchsicButton } from '../MatchsicButton';
-import { BrowserRouter as Router, Link } from 'react-router-dom';
 import { MatchsicGreenBox } from '../MatchsicGreenBox';
 
 interface LoginPageProps {
   setUserToken: (token: string) => void,
 }
+
 
 export const LoginPage = (props: LoginPageProps) => {
 
