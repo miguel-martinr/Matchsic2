@@ -2,6 +2,7 @@ import React from 'react';
 import { Col, Container, Form, Row } from 'react-bootstrap';
 import { MatchsicButton } from '../MatchsicButton';
 import { BrowserRouter as Router, Link } from 'react-router-dom';
+import { MatchsicGreenBox } from '../MatchsicGreenBox';
 
 interface LoginPageProps {
   setUserToken: (token: string) => void,
@@ -47,26 +48,14 @@ export const LoginPage = (props: LoginPageProps) => {
   }
 
   return (
-    
-    <Container style={containerStyle} fluid>
-
-      <Row className="pt-5"></Row> { /*Offset*/}
-
-
-      <Row>
-        <Col className="text-center">
-          <h1 style={titleStyle}>Matchsic</h1>
-        </Col>
-      </Row>
-
+    <MatchsicGreenBox>
       <Row className="pt-5"></Row> { /*Offset*/}
       <Row className="pt-5"></Row> { /*Offset*/}
-
       <Row className="pt-5 ps-3 pe-3">
         <Col className="text-center">
           <Form onSubmit={handleSubmit}>
             <Form.Group className="mb-5" controlId="username">
-              <Form.Control type="text" placeholder="Nombre de usuario  " />
+              <Form.Control type="text" placeholder="Nombre de usuario" />
             </Form.Group>
             <Form.Group className="mb-5" controlId="password">
               <Form.Control type="password" placeholder="Contraseña" />
@@ -75,18 +64,6 @@ export const LoginPage = (props: LoginPageProps) => {
           </Form>
         </Col>
       </Row>
-
-
-      <Row className="pt-5"></Row> { /*Offset*/}
-      <Row className="pt-5">
-        <Col className="text-center">
-          
-            <Link to="/register">Registrarme</Link>
-          
-        </Col>
-      </Row>
-
-
-    </Container>
+    </MatchsicGreenBox>
   )
 }
