@@ -30,20 +30,13 @@ export const LoginPage = (props: LoginPageProps) => {
       return;
     }
 
-    const usernameInput = form.elements.namedItem("username") as HTMLInputElement;
-    const passwordInput = form.elements.namedItem("password") as HTMLInputElement;
+    const {username} = fields;
 
-    if (!usernameInput || !passwordInput) {
-      alert('Can\'t find username or password input');
-      return;
-    }
-
-    const [username, password] = [usernameInput.value, passwordInput.value];
     // Send login request to server
     const token = `${username}'s token`;
 
     // if login successful, set user token in local storage
-    // props.setUserToken(token);
+    props.setUserToken(token);
     return;
 
     // if login unsuccessful, show error message
