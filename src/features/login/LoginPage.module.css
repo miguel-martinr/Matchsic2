@@ -3,3 +3,14 @@
   text-decoration: none;
   font-weight: bold;
 }
+
+
+.invalidFeedback {
+  background-color: white;
+  border-radius: 0px 0px 10px 10px;
+  margin-top: -0.1em;
+  margin-left: 0.1em;
+  margin-right: 0.1em;
+  height: 1.6em;
+  font-weight: bold;
+}
