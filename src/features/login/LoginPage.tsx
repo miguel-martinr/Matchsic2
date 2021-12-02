@@ -67,22 +67,30 @@ export const LoginPage = (props: LoginPageProps) => {
                   isInvalid={validated && !fields.username}
                   onChange={handleFieldChange}
                 />
-                <Form.Control.Feedback type="invalid">
+                <Form.Control.Feedback
+                  type="invalid"
+                  className={classes.invalidFeedback}
+                >
                   Completa este campo
                 </Form.Control.Feedback>
               </InputGroup>
             </Form.Group>
             <Form.Group className="mb-5" controlId="password">
-              <Form.Control
-                required
-                type="password"
-                placeholder="Contraseña"
-                isInvalid={validated && !fields.password}
-                onChange={handleFieldChange}
-              />
-              <Form.Control.Feedback type="invalid">
-                Completa este campo
-              </Form.Control.Feedback>
+              <InputGroup hasValidation>
+                <Form.Control
+                  required
+                  type="password"
+                  placeholder="Contraseña"
+                  isInvalid={validated && !fields.password}
+                  onChange={handleFieldChange}
+                />
+                <Form.Control.Feedback
+                  type="invalid"
+                  className={classes.invalidFeedback}
+                >
+                  Completa este campo
+                </Form.Control.Feedback>
+              </InputGroup>
             </Form.Group>
             <MatchsicButton text="Entrar" ></MatchsicButton>
           </Form>
