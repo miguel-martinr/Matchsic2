@@ -13,7 +13,7 @@ type UserToken = string | null;
 
 function App() {
   // Go to login if user is not logged in
-  const [userToken, setUserToken] = useState<UserToken>("test");
+  const [userToken, setUserToken] = useState<UserToken>(null);
 
 
   
