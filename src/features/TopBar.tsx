@@ -1,10 +1,14 @@
-import Button from "@restart/ui/esm/Button"
 import React, { useState } from "react"
 import { Container, Navbar, Offcanvas } from "react-bootstrap"
 
 
 const barStyle = {
   background: '#0BA55D'
+}
+
+
+const exitStyle = {
+  color: '#FFFFFF'
 }
 
 
@@ -16,9 +20,9 @@ export const TopBar = () => {
   return (
     <Navbar expand="lg" style={barStyle}>
       <Container>
-        <Button onClick={handleShow}>
-          Menu
-        </Button>
+        <a onClick={handleShow}>
+          <img src="https://upload.wikimedia.org/wikipedia/commons/5/59/Hamburger_icon_white.svg"></img>
+        </a>
         <Offcanvas show={show} onHide={handleClose}>
           <Offcanvas.Header closeButton>
             <Offcanvas.Title>Menu</Offcanvas.Title>
@@ -27,7 +31,7 @@ export const TopBar = () => {
             Options of menu
           </Offcanvas.Body>
         </Offcanvas>
-        <Navbar.Brand>Salir</Navbar.Brand>
+        <Navbar.Brand style={exitStyle}>Salir</Navbar.Brand>
       </Container>
     </Navbar>
   )
