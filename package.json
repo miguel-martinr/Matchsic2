@@ -20,6 +20,7 @@
     "mongoose": "^6.0.14",
     "react": "^17.0.0",
     "react-bootstrap": "^2.0.3",
+    "react-bootstrap-navbar-offcanvas": "^1.0.3",
     "react-dom": "^17.0.0",
     "react-redux": "^7.2.6",
     "react-router-dom": "^6.0.2"
