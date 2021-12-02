@@ -31,7 +31,7 @@ export const TopBar = () => {
             Options of menu
           </Offcanvas.Body>
         </Offcanvas>
-        <Navbar.Brand style={exitStyle}>Salir</Navbar.Brand>
+        <Navbar.Brand style={exitStyle} href="http://localhost:3000/">Salir</Navbar.Brand>
       </Container>
     </Navbar>
   )
