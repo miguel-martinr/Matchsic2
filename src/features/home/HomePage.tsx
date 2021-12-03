@@ -1,6 +1,7 @@
 import React, { Fragment } from 'react'
 import { Outlet, Route, useNavigate } from 'react-router'
 import { Link, Routes } from 'react-router-dom';
+import { BottonBar } from '../BottonBar';
 
 export const HomePage = () => {
 
@@ -20,7 +21,7 @@ export const HomePage = () => {
 
       {/*NavBar*/}
 
-      {tempNavBar}
+      <BottonBar></BottonBar>
     </Fragment>
   )
 }
