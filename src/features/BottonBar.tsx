@@ -27,7 +27,7 @@ export const BottonBar = () => {
       <Container>
         <Navbar.Brand href="http://localhost:3000/"><img style={imageStyle} src="./src/Home.svg"></img></Navbar.Brand>
         <Navbar.Brand href="http://localhost:3000/"><img style={imageStyle} src="./src/notificacion.svg"></img></Navbar.Brand>
-        <Navbar.Brand href="http://localhost:3000/Profile"><img style={imageStyle} src="https://svgsilh.com/svg/1633250.svg"></img></Navbar.Brand>
+        <Navbar.Brand href="http://localhost:3000/Profile"><img style={imageStyle} src="./src/Perfil.svg"></img></Navbar.Brand>
       </Container>
     </Navbar>
   )
