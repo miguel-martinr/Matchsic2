@@ -1,9 +1,11 @@
 
-// cypress/google/search.spec.ts
+const loginPagePath = 'http://localhost:3000/login';
+
+
 describe('When I visit login page', () => {
   
   beforeEach(() => {
-    cy.visit('http://localhost:3000/');
+    cy.visit(loginPagePath);
   })
   
   it('It should show me an username input with a placeholder', () => {
@@ -26,7 +28,7 @@ describe('When I visit login page', () => {
 
 describe('When I click the login button', () => {
   beforeEach(() => {
-    cy.visit('http://localhost:3000/');
+    cy.visit(loginPagePath);
   });
 
   it('It should show invalid feedback if there is not an username', () => {
