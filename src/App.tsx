@@ -16,12 +16,8 @@ function App() {
   const [userToken, setUserToken] = useState<UserToken>(null);
 
 
-  
-
-
   const loginPage = <LoginPage setUserToken={setUserToken} />;
   const registerPage = <RegisterPage></RegisterPage>;
-  const tempProfile = <div>Profile page</div>;
   const tempHome = <div>Home page</div>;
   return (
     <Routes>
