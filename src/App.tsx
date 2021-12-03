@@ -16,20 +16,16 @@ function App() {
   const [userToken, setUserToken] = useState<UserToken>(null);
 
 
-  
-
-
   const loginPage = <LoginPage setUserToken={setUserToken} />;
   const registerPage = <RegisterPage></RegisterPage>;
-  const tempProfile = <div>Profile page</div>;
-  const tempHome = <div>Home page</div>;
+  const tempMap = <div>Home Map</div>;
   return (
     <Routes>
       {
         !userToken ? // User is NOT logged in
           (
             <Fragment>
-              <Route path='/' element={loginPage} />
+              <Route path='/login' element={loginPage} />
               <Route path='/register' element={registerPage} />
             </Fragment>
           )
@@ -37,7 +33,7 @@ function App() {
           ( // User is logged in
             <Fragment>
               <Route path='/' element={<HomePage />}>
-                <Route path='/' element={tempHome} />
+                <Route path='/home' element={tempMap} />
                 <Route path='/profile' element={<ProfilePage />} />
               </Route>
             </Fragment>
