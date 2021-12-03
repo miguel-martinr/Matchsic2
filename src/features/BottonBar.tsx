@@ -1,6 +1,5 @@
 import React from "react"
 import { Container, Navbar } from "react-bootstrap"
-import classes from "./greenCircle.css"
 
 
 const barStyle = {
