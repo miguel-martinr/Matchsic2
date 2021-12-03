@@ -52,7 +52,7 @@ export const LoginPage = (props: LoginPageProps) => {
         <Col className="text-center">
           <Form onSubmit={handleSubmit} noValidate>
             <Form.Group className="mb-5" controlId="username">
-              <InputGroup hasValidation>
+              <InputGroup hasValidation id="usernameInputGroup">
                 <Form.Control
                   required
                   type="text"
@@ -69,7 +69,7 @@ export const LoginPage = (props: LoginPageProps) => {
               </InputGroup>
             </Form.Group>
             <Form.Group className="mb-5" controlId="password">
-              <InputGroup hasValidation>
+              <InputGroup hasValidation id="passwordInputGroup">
                 <Form.Control
                   required
                   type="password"
@@ -85,7 +85,7 @@ export const LoginPage = (props: LoginPageProps) => {
                 </Form.Control.Feedback>
               </InputGroup>
             </Form.Group>
-            <MatchsicButton text="Entrar" ></MatchsicButton>
+            <MatchsicButton text="Entrar" id="loginButton"></MatchsicButton>
           </Form>
         </Col>
       </Row>

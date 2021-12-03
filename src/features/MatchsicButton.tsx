@@ -11,7 +11,7 @@ const style = {
 }
 
 
-interface MatchsicButtonProps {
+interface MatchsicButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   text: string,
 }
 
@@ -19,9 +19,12 @@ interface MatchsicButtonProps {
 
 
 export const MatchsicButton = (props: MatchsicButtonProps) => {
+  
+  const {text} = props;
+  
   return (
-    <button style={style}>
-      {props.text}
+    <button {...props} style={style}>
+      {text}
     </button>
   )
 }
