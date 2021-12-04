@@ -3,7 +3,7 @@ import { Outlet } from 'react-router'
 import { BottomBar } from '../BottomBar';
 import { TopBar } from '../TopBar';
 
-export const HomePage = () => {
+export const MatchsicFrame = () => {
 
   
   return (
