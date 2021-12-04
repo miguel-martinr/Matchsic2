@@ -1,7 +1,7 @@
 import React, { Fragment } from 'react'
 import { Outlet, Route, useNavigate } from 'react-router'
 import { Link, Routes } from 'react-router-dom';
-import { BottonBar } from '../BottonBar';
+import { BottomBar } from '../BottomBar';
 import { TopBar } from '../TopBar';
 
 export const HomePage = () => {
@@ -22,7 +22,7 @@ export const HomePage = () => {
 
       {/*NavBar*/}
 
-      <BottonBar></BottonBar>
+      <BottomBar></BottomBar>
     </Fragment>
   )
 }
