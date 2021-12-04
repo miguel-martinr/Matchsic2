@@ -5,7 +5,7 @@ import { Route, Routes } from 'react-router-dom';
 
 
 // Login page
-import { LoginPage, ProfilePage, RegisterPage, HomePage } from './features';
+import { LoginPage, ProfilePage, RegisterPage, MatchsicFrame } from './features';
 
 
 type UserToken = string | null;
@@ -32,7 +32,7 @@ function App() {
           :
           ( // User is logged in
             <Fragment>
-              <Route path='/' element={<HomePage />}>
+              <Route path='/' element={<MatchsicFrame />}>
                 <Route path='/home' element={tempMap} />
                 <Route path='/profile' element={<ProfilePage />} />
               </Route>
