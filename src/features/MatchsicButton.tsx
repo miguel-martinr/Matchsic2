@@ -21,6 +21,14 @@ interface MatchsicButtonProps extends React.ButtonHTMLAttributes<HTMLButtonEleme
 export const MatchsicButton = (props: MatchsicButtonProps) => {
   
   const {text} = props;
+  // if(props.className){
+  //   const {className} = props;
+  //   return (
+  //     <button {...props} style={style} className={className}>
+  //       {text}
+  //     </button>
+  //   )
+  // }
   
   return (
     <button {...props} style={style}>

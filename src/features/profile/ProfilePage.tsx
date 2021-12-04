@@ -1,7 +1,8 @@
 import Button from '@restart/ui/esm/Button';
 import React from 'react';
 import { Card, Container, Row, Col } from 'react-bootstrap';
-import classes from './ProfileCard.module.css'
+import classes from './ProfileCard.module.css';
+import { MatchsicButton } from '../MatchsicButton';
 
 export const ProfilePage = () => {
 
@@ -12,7 +13,7 @@ export const ProfilePage = () => {
 
                 <Container>
 
-                    <Row><Button className={classes.ButtonEditProfile}>Editar Perfil</Button></Row>
+                    <Row><MatchsicButton text={"Editar Perfil"} className={classes.ButtonEditProfile}></MatchsicButton></Row>
     
                 </Container>
                 
