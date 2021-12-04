@@ -1,13 +1,14 @@
 import React from 'react'
+import { Button } from 'react-bootstrap';
 
 const style = {
   backgroundColor: '#fff',
-  color: '#0BA55D',
-  borderRadius: '100px',
-  border: 'none',
-  width: '8em',
-  height: '3em',
-  fontWeight: 'bold',
+  // color: '#0BA55D',
+  // borderRadius: '100px',
+  // border: 'none',
+  // width: '8em',
+  // height: '3em',
+  // fontWeight: 'bold',
 }
 
 
@@ -16,23 +17,14 @@ interface MatchsicButtonProps extends React.ButtonHTMLAttributes<HTMLButtonEleme
 }
 
 
-
-
 export const MatchsicButton = (props: MatchsicButtonProps) => {
   
   const {text} = props;
-  // if(props.className){
-  //   const {className} = props;
-  //   return (
-  //     <button {...props} style={style} className={className}>
-  //       {text}
-  //     </button>
-  //   )
-  // }
-  
+
+  const className = (props.className || "") + " rounded-pill pe-2 ps-2 p-1" ;
   return (
-    <button {...props} style={style}>
+    <Button {...props} style={style} className={className}>
       {text}
-    </button>
+    </Button>
   )
 }
