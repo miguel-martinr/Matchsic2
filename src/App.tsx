@@ -6,6 +6,7 @@ import { Route, Routes } from 'react-router-dom';
 
 // Login page
 import { LoginPage, ProfilePage, RegisterPage, MatchsicFrame } from './features';
+import { NotificationPage } from './features/notifications/NotificationPage';
 
 
 type UserToken = string | null;
@@ -13,7 +14,7 @@ type UserToken = string | null;
 
 function App() {
   // Go to login if user is not logged in
-  const [userToken, setUserToken] = useState<UserToken>("sd");
+  const [userToken, setUserToken] = useState<UserToken>("token");
 
 
   const loginPage = <LoginPage setUserToken={setUserToken} />;
@@ -35,6 +36,7 @@ function App() {
               <Route path='/' element={<MatchsicFrame />}>
                 <Route path='/home' element={tempMap} />
                 <Route path='/profile' element={<ProfilePage />} />
+                <Route path='/notifications' element={<NotificationPage />} />
               </Route>
             </Fragment>
           )
