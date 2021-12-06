@@ -10,6 +10,11 @@
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
+.mainFrame {
+  height: 100vh; /* So BottomBar does not move */
+}
+
+
 .ButtonEditProfile {
     width: 120px !important;
     margin-top: 100px; 

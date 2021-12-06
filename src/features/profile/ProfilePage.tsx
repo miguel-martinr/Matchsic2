@@ -6,72 +6,72 @@ import { MatchsicButton } from '../MatchsicButton';
 
 export const ProfilePage = () => {
 
-    let test = (
-        
-<>
-            <div className={classes.BackgroundTopProfile}>
+  let test = (
 
-                <Container>
+    <div className={classes.mainFrame}>
+      <div className={classes.BackgroundTopProfile}>
 
-                    <Row><MatchsicButton text={"Editar Perfil"} className={classes.ButtonEditProfile}></MatchsicButton></Row>
-    
-                </Container>
-                
-            </div>
-            <div>
+        <Container>
 
-                <Card.Img className={classes.ProfileCardImage} alt="User Image" src={'https://thispersondoesnotexist.com/image'}/>
-                
-            </div>
+          <Row><MatchsicButton text={"Editar Perfil"} className={classes.ButtonEditProfile}></MatchsicButton></Row>
 
-            <div>
-            <Card className={classes.ProfileCard + " mx-auto" + " border-0"} >
+        </Container>
 
-                <Card.Body>
+      </div>
+      <div>
 
-                    <Card.Text className={classes.TextBold + " mb-0"}>
-                        Pedro Guillermo
-                    </Card.Text>
+        <Card.Img className={classes.ProfileCardImage} alt="User Image" src={'https://thispersondoesnotexist.com/image'} />
 
-                    <span className={classes.TextMuted + " pl-1"}>Mordor1110</span>
+      </div>
 
-                    <Card.Text>
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt a unde eum. Quaerat dolor unde saepe laudantium incidunt alias, architecto quidem fuga optio, blanditiis, tempora voluptates qui debitis veritatis hic.
-                    </Card.Text>
+      <div>
+        <Card className={classes.ProfileCard + " mx-auto" + " border-0"} >
 
-                </Card.Body>
-  
-                <Card.Body >
+          <Card.Body>
 
-                    <Card.Text className={classes.TextBold + " mb-0"}>
-                        Gustos musicales
-                    </Card.Text>
+            <Card.Text className={classes.TextBold + " mb-0"}>
+              Pedro Guillermo
+            </Card.Text>
 
-                    <Card.Text>
-                       <Container>
-                           <Row>
-                               <Col className={classes.MusicalRound}>Pop</Col><Col className={classes.MusicalRound}>Rock</Col><Col className={classes.MusicalRound}>Metal</Col><Col className={classes.MusicalRound}>Rock</Col>
-                           </Row>
-                       </Container>
-                    </Card.Text>
+            <span className={classes.TextMuted + " pl-1"}>Mordor1110</span>
 
-                </Card.Body>
+            <Card.Text>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt a unde eum. Quaerat dolor unde saepe laudantium incidunt alias, architecto quidem fuga optio, blanditiis, tempora voluptates qui debitis veritatis hic.
+            </Card.Text>
 
-                <Card.Body >
-                    <Card.Text>
-                       <Container>
-                           <Row>
-                               <Col>Twitter</Col>
-                           </Row>
-                       </Container>
-                    </Card.Text>
-                </Card.Body>
-            </Card>
-            </div>
-        </>
+          </Card.Body>
 
-    )
+          <Card.Body >
+
+            <Card.Text className={classes.TextBold + " mb-0"}>
+              Gustos musicales
+            </Card.Text>
+
+            <Card.Text>
+              <Container>
+                <Row>
+                  <Col className={classes.MusicalRound}>Pop</Col><Col className={classes.MusicalRound}>Rock</Col><Col className={classes.MusicalRound}>Metal</Col><Col className={classes.MusicalRound}>Rock</Col>
+                </Row>
+              </Container>
+            </Card.Text>
+
+          </Card.Body>
+
+          <Card.Body >
+            <Card.Text>
+              <Container>
+                <Row>
+                  <Col>Twitter</Col>
+                </Row>
+              </Container>
+            </Card.Text>
+          </Card.Body>
+        </Card>
+      </div>
+    </div>
+
+  )
 
 
-    return(test)
+  return (test)
 }
