@@ -1,6 +1,6 @@
 .mainFrame {
   background-color: #EEEEEE;
-  /* height: 85vh; */
+  margin-bottom: 60px; /* bottomBar_height + margin */
 }
 
 

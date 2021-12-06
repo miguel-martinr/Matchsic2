@@ -73,7 +73,7 @@ export const NotificationPage = () => {
   }
 
   return (
-    <Container  fluid>
+    <Container className={`${classes.mainFrame}`} fluid>
       <Row className='pt-5'></Row>
       <Row className='pt-5 ps-4'>
         <Col className="text-center col-sm-12 col-md-5 offset-sm-0 offset-md-1">
