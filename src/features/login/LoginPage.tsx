@@ -6,6 +6,16 @@ import { MatchsicGreenBox } from '../MatchsicGreenBox';
 import { useFormFields } from '../../utilities/form-hooks';
 
 import classes from './LoginPage.module.css';
+
+const loginButtonStyle = {
+  color: '#0BA55D',
+  borderRadius: '100px',
+  border: 'none',
+  width: '8em',
+  height: '3em',
+  fontWeight: 'bold',
+}
+
 interface LoginPageProps {
   setUserToken: (token: string) => void,
 }
@@ -85,7 +95,7 @@ export const LoginPage = (props: LoginPageProps) => {
                 </Form.Control.Feedback>
               </InputGroup>
             </Form.Group>
-            <MatchsicButton text="Entrar" id="loginButton"></MatchsicButton>
+            <MatchsicButton text="Entrar" id="loginButton" style={loginButtonStyle} type="submit"></MatchsicButton>
           </Form>
         </Col>
       </Row>
