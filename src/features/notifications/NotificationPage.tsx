@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react'
+import React from 'react'
 import { Col, Container, Row } from 'react-bootstrap';
 import { useNavigate } from 'react-router'
 import { NotificationCard } from './NotificationCard'

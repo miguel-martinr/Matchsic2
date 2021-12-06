@@ -3,7 +3,7 @@ import { Container, Navbar, Offcanvas } from "react-bootstrap"
 
 
 const barStyle = {
-  background: '#0BA55D'
+  background: '#0BA55D',
 }
 
 
