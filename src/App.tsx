@@ -19,7 +19,7 @@ function App() {
 
   const loginPage = <LoginPage setUserToken={setUserToken} />;
   const registerPage = <RegisterPage></RegisterPage>;
-  const tempMap = <div>Home Map</div>;
+  const tempMap = <div style={{height: '100vh'}}>Home Map</div>;
   return (
     <Routes>
       {

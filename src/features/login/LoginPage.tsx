@@ -1,11 +1,21 @@
 import React, { useState } from 'react';
 import { Col, Form, InputGroup, Row } from 'react-bootstrap';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { MatchsicButton } from '../MatchsicButton';
 import { MatchsicGreenBox } from '../MatchsicGreenBox';
 import { useFormFields } from '../../utilities/form-hooks';
 
 import classes from './LoginPage.module.css';
+
+const loginButtonStyle = {
+  color: '#0BA55D',
+  borderRadius: '100px',
+  border: 'none',
+  width: '8em',
+  height: '3em',
+  fontWeight: 'bold',
+}
+
 interface LoginPageProps {
   setUserToken: (token: string) => void,
 }
@@ -14,19 +24,20 @@ interface LoginPageProps {
 export const LoginPage = (props: LoginPageProps) => {
 
   const [validated, setValidated] = useState(false);
+  const navigate = useNavigate();
   const [fields, handleFieldChange] = useFormFields({
     username: '',
     password: '',
   });
 
   const handleSubmit = (ev: React.FormEvent) => {
-
+    
     const form = ev.target as HTMLFormElement;
+    ev.preventDefault();
 
     setValidated(true);
     if (!form.checkValidity()) {
-      ev.preventDefault();
-      ev.stopPropagation();
+      
       return;
     }
 
@@ -37,6 +48,7 @@ export const LoginPage = (props: LoginPageProps) => {
 
     // if login successful, set user token in local storage
     props.setUserToken(token);
+    navigate('/home');
     return;
 
     // if login unsuccessful, show error message
@@ -85,7 +97,7 @@ export const LoginPage = (props: LoginPageProps) => {
                 </Form.Control.Feedback>
               </InputGroup>
             </Form.Group>
-            <MatchsicButton text="Entrar" id="loginButton"></MatchsicButton>
+            <MatchsicButton text="Entrar" id="loginButton" style={loginButtonStyle} type="submit"></MatchsicButton>
           </Form>
         </Col>
       </Row>

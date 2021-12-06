@@ -1,7 +1,7 @@
 import React from 'react'
 import { Button } from 'react-bootstrap';
 
-const style = {
+const matchsicButtonStyle = {
   backgroundColor: '#fff',
   // color: '#0BA55D',
   // borderRadius: '100px',
@@ -20,10 +20,11 @@ interface MatchsicButtonProps extends React.ButtonHTMLAttributes<HTMLButtonEleme
 export const MatchsicButton = (props: MatchsicButtonProps) => {
   
   const {text} = props;
+  const style = props.style || {};
 
   const className = (props.className || "") + " rounded-pill pe-2 ps-2 p-1" ;
   return (
-    <Button {...props} style={style} className={className}>
+    <Button {...props} style={{...matchsicButtonStyle, ...style}} className={className}>
       {text}
     </Button>
   )
