@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Col, Form, InputGroup, Row } from 'react-bootstrap';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { MatchsicButton } from '../MatchsicButton';
 import { MatchsicGreenBox } from '../MatchsicGreenBox';
 import { useFormFields } from '../../utilities/form-hooks';
@@ -24,19 +24,20 @@ interface LoginPageProps {
 export const LoginPage = (props: LoginPageProps) => {
 
   const [validated, setValidated] = useState(false);
+  const navigate = useNavigate();
   const [fields, handleFieldChange] = useFormFields({
     username: '',
     password: '',
   });
 
   const handleSubmit = (ev: React.FormEvent) => {
-
+    
     const form = ev.target as HTMLFormElement;
+    ev.preventDefault();
 
     setValidated(true);
     if (!form.checkValidity()) {
-      ev.preventDefault();
-      ev.stopPropagation();
+      
       return;
     }
 
@@ -47,6 +48,7 @@ export const LoginPage = (props: LoginPageProps) => {
 
     // if login successful, set user token in local storage
     props.setUserToken(token);
+    navigate('/home');
     return;
 
     // if login unsuccessful, show error message
