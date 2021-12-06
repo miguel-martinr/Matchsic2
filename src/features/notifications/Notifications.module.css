@@ -1,0 +1,20 @@
+.mainFrame {
+  background-color: #EEEEEE;
+  height: 100vh;
+}
+
+
+.senderProfilePicture {
+  border-radius: 1em;
+  width: 3.5em;
+}
+
+
+.notificationPayloadText {
+  font-size: smaller;
+}
+
+.button {
+  border-inline: 1px;
+  color: #4B9460;
+}
