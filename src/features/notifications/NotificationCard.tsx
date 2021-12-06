@@ -4,7 +4,7 @@ import { MatchsicButton } from '../MatchsicButton';
 import classes from './Notifications.module.css';
 
 interface NotificationCardProps extends React.HTMLAttributes<HTMLDivElement> {
-  onGoToMap: React.MouseEventHandler<HTMLButtonElement>
+  handleGoToMap: React.MouseEventHandler<HTMLButtonElement>
   sender: {
     username: string,
     profileLink: string,
@@ -17,6 +17,7 @@ interface NotificationCardProps extends React.HTMLAttributes<HTMLDivElement> {
 
 export const NotificationCard = (props: NotificationCardProps) => {
 
+  const {handleGoToMap, ...divProps} = props;
   const { sender } = props;
   const getHeader = () => {
     return (
@@ -25,7 +26,7 @@ export const NotificationCard = (props: NotificationCardProps) => {
   };
 
   return (
-    <div {...props}>
+    <div {...divProps}>
       <Row>
         <Col className="col-2"> {/*Image column*/}
           <img
@@ -50,7 +51,7 @@ export const NotificationCard = (props: NotificationCardProps) => {
           <MatchsicButton
             className={`${classes.button} border-0`}
             text="Ir al mapa"
-            onClick={props.onGoToMap}
+            onClick={handleGoToMap}
           />
         </Col>
         <Col>
