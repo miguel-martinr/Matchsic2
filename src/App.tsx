@@ -14,7 +14,7 @@ type UserToken = string | null;
 
 function App() {
   // Go to login if user is not logged in
-  const [userToken, setUserToken] = useState<UserToken>("token");
+  const [userToken, setUserToken] = useState<UserToken>("asd");
 
 
   const loginPage = <LoginPage setUserToken={setUserToken} />;

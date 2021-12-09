@@ -18,7 +18,12 @@
 .ButtonEditProfile {
     size: 10px;
     float: right;
-   
+    color: #0BA55D;
+    border-radius: 100px;
+    border: none;
+    width: 7em;
+    height: 2em;
+    font-weight: bold;
 }
 
 .MusicalRound{

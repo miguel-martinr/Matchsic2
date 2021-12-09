@@ -12,13 +12,13 @@ export const ProfilePage = () => {
         name: "Pedro Guillermo",
         nickname: "Mordor1110",
         description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt a unde eum. Quaerat dolor unde saepe laudantium incidunt alias, architecto quidem fuga optio, blanditiis, tempora voluptates qui debitis veritatis hic.",
-        music: ["Rock", "Metal", "Pop"],
+        music: ["Rock", "Metal"],
         social: ["Twitter", "Facebook", "Instagram"],
     }
 
     let content = (
         
-    <Container>
+    <Container className={classes.mainFrame}>
         <Row className={classes.BackgroundTopProfile}>
                 <Row  className='pt-5'></Row>
                 <Row className='pt-5'>
