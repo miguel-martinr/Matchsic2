@@ -6,8 +6,8 @@ const matchsicButtonStyle = {
   // color: '#0BA55D',
   // borderRadius: '100px',
   // border: 'none',
-  // width: '8em',
-  // height: '3em',
+  // width: '7em',
+  // height: '2em',
   // fontWeight: 'bold',
 }
 
