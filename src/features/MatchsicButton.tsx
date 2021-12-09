@@ -3,12 +3,12 @@ import { Button } from 'react-bootstrap';
 
 const matchsicButtonStyle = {
   backgroundColor: '#fff',
-  // color: '#0BA55D',
-  // borderRadius: '100px',
-  // border: 'none',
-  // width: '8em',
-  // height: '3em',
-  // fontWeight: 'bold',
+  color: '#0BA55D',
+  borderRadius: '100px',
+  border: 'none',
+  width: '7em',
+  height: '2em',
+  fontWeight: 'bold',
 }
 
 
