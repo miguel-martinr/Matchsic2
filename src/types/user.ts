@@ -22,6 +22,7 @@ export interface NotificationData {
   sender: UserData,
   status: NotificationStatus,
   issuedAt: number, // Date?
+  payload: string,
 }
 
 
