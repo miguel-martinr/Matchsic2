@@ -17,7 +17,7 @@ export interface UserData {
 
 export type NotificationStatus = 'unread' | 'read';
 
-export interface Notification {
+export interface NotificationData {
   id: string,
   sender: UserData,
   status: NotificationStatus,
