@@ -25,9 +25,9 @@ export const BottomBar = () => {
   return (
     <Navbar className="fixed-bottom" style={barStyle}>
       <Container>
-        <Link to="/home"><Navbar.Brand ><img style={imageStyle} src="./src/Home.svg"></img></Navbar.Brand></Link>
-        <Link to="/notifications"><Navbar.Brand ><img style={imageStyle} src="./src/notificacion.svg"></img></Navbar.Brand></Link>
-        <Link to="/profile"><Navbar.Brand ><img style={imageStyle} src="./src/Perfil.svg"></img></Navbar.Brand></Link>
+        <Link to="/home"><Navbar.Brand ><img style={imageStyle} src="./assets/Home.svg"></img></Navbar.Brand></Link>
+        <Link to="/notifications"><Navbar.Brand ><img style={imageStyle} src="./assets/notificacion.svg"></img></Navbar.Brand></Link>
+        <Link to="/profile"><Navbar.Brand ><img style={imageStyle} src="./assets/Perfil.svg"></img></Navbar.Brand></Link>
       </Container>
     </Navbar>
   )

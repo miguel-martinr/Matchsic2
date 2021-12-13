@@ -2,9 +2,14 @@ import React from 'react'
 import { Col, Container, Row } from 'react-bootstrap';
 import { useNavigate } from 'react-router'
 import { NotificationCard } from './NotificationCard'
+import { useAppDispatch, useAppSelector } from '../store/hooks';
 import classes from './Notifications.module.css';
+import { sayHi } from '../store/storeSlice';
 
 export const NotificationPage = () => {
+
+  const username = useAppSelector((state) => state.matchsic.userSession?.username);
+  const dispatch = useAppDispatch();
 
   const navigate = useNavigate();
 
@@ -23,7 +28,7 @@ export const NotificationPage = () => {
           profileLink: 'sender/profile.com',
         },
         payload: 'Hola, ¿Alguna playlist que me recomiendes?',
-        handleGoToMap: getNavigateToMap([28.556347, -16.336054]),
+        handleGoToMap: () => dispatch(sayHi()),
       },
       {
         sender: {

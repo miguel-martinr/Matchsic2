@@ -5,7 +5,7 @@ import { Route, Routes } from 'react-router-dom';
 
 
 // Login page
-import { LoginPage, ProfilePage, RegisterPage, MatchsicFrame } from './features';
+import { LoginPage, ProfilePage, RegisterPage, MatchsicFrame } from './features/utils';
 import { NotificationPage } from './features/notifications/NotificationPage';
 
 

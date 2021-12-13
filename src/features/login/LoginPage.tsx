@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import { Col, Form, InputGroup, Row } from 'react-bootstrap';
 import { Link, useNavigate } from 'react-router-dom';
-import { MatchsicButton } from '../MatchsicButton';
-import { MatchsicGreenBox } from '../MatchsicGreenBox';
+import { MatchsicButton } from '../utils/MatchsicButton';
+import { MatchsicGreenBox } from '../utils/MatchsicGreenBox';
 import { useFormFields } from '../../utilities/form-hooks';
 
 import classes from './LoginPage.module.css';
@@ -41,7 +41,7 @@ export const LoginPage = (props: LoginPageProps) => {
       return;
     }
 
-    const {username} = fields;
+    const {username, password} = fields;
 
     // Send login request to server
     const token = `${username}'s token`;
