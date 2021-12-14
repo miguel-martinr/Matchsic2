@@ -1,5 +1,9 @@
 import React, { useState } from "react"
 import { Container, Navbar, Offcanvas } from "react-bootstrap"
+import { useNavigate } from "react-router-dom"
+import { useAppDispatch } from "../store/hooks"
+import { loggedOut } from "../store/storeSlice"
+import { userService } from "../_services"
 
 
 const barStyle = {
@@ -17,6 +21,20 @@ export const TopBar = () => {
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
 
+  const navigate = useNavigate();
+  const dispatch = useAppDispatch();
+
+  const logoutHandler = () => {
+    userService.logout()
+      .then(() => {
+        dispatch(loggedOut());
+        navigate('/login');
+      })
+      .catch(() => {
+        alert(`Something went wrong!`);
+      });
+  }
+
   return (
     <Navbar expand="lg" style={barStyle}>
       <Container>
@@ -31,7 +49,7 @@ export const TopBar = () => {
             Options of menu
           </Offcanvas.Body>
         </Offcanvas>
-        <Navbar.Brand style={exitStyle} href="http://localhost:3000/">Salir</Navbar.Brand>
+        <Navbar.Brand style={exitStyle} onClick={logoutHandler}>Salir</Navbar.Brand>
       </Container>
     </Navbar>
   )

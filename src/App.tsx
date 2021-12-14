@@ -7,23 +7,25 @@ import { Route, Routes } from 'react-router-dom';
 // Login page
 import { LoginPage, ProfilePage, RegisterPage, MatchsicFrame } from './features/utils';
 import { NotificationPage } from './features/notifications/NotificationPage';
+import { useAppSelector } from './features/store/hooks';
 
 
-type UserToken = string | null;
+
 
 
 function App() {
   // Go to login if user is not logged in
-  const [userToken, setUserToken] = useState<UserToken>("asd");
+  
+  
+  const userIsLoggedIn = useAppSelector(state => state.matchsic.userIsLoggedIn);
 
-
-  const loginPage = <LoginPage setUserToken={setUserToken} />;
+  const loginPage = <LoginPage/>;
   const registerPage = <RegisterPage></RegisterPage>;
   const tempMap = <div style={{height: '100vh'}}>Home Map</div>;
   return (
     <Routes>
       {
-        !userToken ? // User is NOT logged in
+        !userIsLoggedIn ? // User is NOT logged in
           (
             <Fragment>
               <Route path='/login' element={loginPage} />

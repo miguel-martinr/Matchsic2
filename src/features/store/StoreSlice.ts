@@ -7,6 +7,7 @@ interface MatchsicState {
   userSession: UserData,
   nearUsers: UserData[],
   notifications: NotificationData[], 
+  userIsLoggedIn: boolean,
 }
 
 
@@ -19,6 +20,7 @@ const initialState: MatchsicState = {
 
   nearUsers: [],
   notifications: [],
+  userIsLoggedIn: false,
 }
 
 const matchsicSlice = createSlice({
@@ -30,13 +32,21 @@ const matchsicSlice = createSlice({
       return state;
     },
 
-    loggedin(state, action: PayloadAction<{username: string, password: string}>) {
-      const { username, password } = action.payload;
+    loggedIn(state, action: PayloadAction<{username: string, name: string}>) {
+      const { username, name } = action.payload;
       state.userSession.username = username;
+      state.userProfile.name = name;
+      state.userIsLoggedIn = true;
     },
+
+    loggedOut(state) {
+      state.userSession.username = '';
+      state.userProfile.name = '';
+      state.userIsLoggedIn = false;
+    }
   }
 });
 
 
-export const { sayHi, loggedin } = matchsicSlice.actions;
+export const { sayHi, loggedIn, loggedOut } = matchsicSlice.actions;
 export default matchsicSlice.reducer;

@@ -1,7 +1,3 @@
-
-
-export const userService = {
-  
-}
+export { userService } from './user';
 
 
