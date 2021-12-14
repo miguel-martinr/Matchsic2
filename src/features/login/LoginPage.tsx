@@ -26,11 +26,22 @@ interface LoginPageProps {
 export const LoginPage = (props: LoginPageProps) => {
 
   const [validated, setValidated] = useState(false);
+  const [invalidFeedback, setInvalidFeedBack] = useState({
+    message: 'Completa este campo',
+    fromServer: false,
+  });
+  
   const navigate = useNavigate();
-  const [fields, handleFieldChange] = useFormFields({
+  const [fields, setFields] = useFormFields({
     username: '',
     password: '',
   });
+
+  const handleFieldChange = (ev: React.ChangeEvent<HTMLInputElement>) => {
+    setInvalidFeedBack({...invalidFeedback, fromServer: false});
+    setValidated(false);
+    setFields(ev);
+  }
 
   const dispatch = useAppDispatch();
   
@@ -56,11 +67,19 @@ export const LoginPage = (props: LoginPageProps) => {
       })
       .catch(err => {
         // if login unsuccessful, show error message
-        alert(err);
+        setInvalidFeedBack({message: err, fromServer: true});
       });
   }
 
-
+  const getMainInvalidFeedBack = () => {
+    if (validated && !fields.username) return 'Completa este campo';
+    if (invalidFeedback.fromServer && fields.usernamme) {
+      setInvalidFeedBack({...invalidFeedback, fromServer: false});
+      setValidated(false);
+      return '';
+    }
+    if (validated && invalidFeedback.fromServer) return invalidFeedback.message;
+  }
 
   return (
     <MatchsicGreenBox>
@@ -75,14 +94,14 @@ export const LoginPage = (props: LoginPageProps) => {
                   required
                   type="text"
                   placeholder="Nombre de usuario"
-                  isInvalid={validated && !fields.username}
+                  isInvalid={validated && (!fields.username || invalidFeedback.fromServer)}
                   onChange={handleFieldChange}
                 />
                 <Form.Control.Feedback
                   type="invalid"
                   className={classes.invalidFeedback}
                 >
-                  Completa este campo
+                  {getMainInvalidFeedBack()}
                 </Form.Control.Feedback>
               </InputGroup>
             </Form.Group>
