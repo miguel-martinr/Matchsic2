@@ -1,7 +1,7 @@
 import React from 'react'
 import { Row, Col, Form } from 'react-bootstrap'
-import { MatchsicButton } from '../MatchsicButton'
-import { MatchsicGreenBox } from '../MatchsicGreenBox'
+import { MatchsicButton } from '../utils/MatchsicButton'
+import { MatchsicGreenBox } from '../utils/MatchsicGreenBox'
 
 export const RegisterPage = () => {
   const handleSubmit = (ev: React.FormEvent<HTMLFormElement>) => {

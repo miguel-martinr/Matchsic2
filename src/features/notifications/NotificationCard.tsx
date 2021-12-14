@@ -1,6 +1,6 @@
 import React, { Fragment } from 'react'
 import { Col, Row } from 'react-bootstrap';
-import { MatchsicButton } from '../MatchsicButton';
+import { MatchsicButton } from '../utils/MatchsicButton';
 import classes from './Notifications.module.css';
 
 interface NotificationCardProps extends React.HTMLAttributes<HTMLDivElement> {

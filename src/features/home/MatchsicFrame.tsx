@@ -1,7 +1,7 @@
 import React, { Fragment, useEffect } from 'react'
 import { Outlet, useNavigate } from 'react-router'
-import { BottomBar } from '../BottomBar';
-import { TopBar } from '../TopBar';
+import { BottomBar } from '../utils/BottomBar';
+import { TopBar } from '../utils/TopBar';
 
 export const MatchsicFrame = () => {
   const navigate = useNavigate();

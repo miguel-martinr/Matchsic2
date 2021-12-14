@@ -1,9 +1,9 @@
 import React from 'react';
 import { Container, Row, Col } from 'react-bootstrap';
 import classes from './ProfileCard.module.css';
-import { MatchsicButton } from '../MatchsicButton';
-import {MatchsicProfileImage} from '../MatchsicProfileImage';
-import {MatchsicUserInfo} from '../MatchsicCardUserInfo';
+import { MatchsicButton } from '../utils/MatchsicButton';
+import {MatchsicProfileImage} from '../utils/MatchsicProfileImage';
+import {MatchsicUserInfo} from '../utils/MatchsicCardUserInfo';
 
 
 export const ProfilePage = () => {

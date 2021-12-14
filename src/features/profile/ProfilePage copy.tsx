@@ -2,7 +2,7 @@ import Button from '@restart/ui/esm/Button';
 import React from 'react';
 import { Card, Container, Row, Col } from 'react-bootstrap';
 import classes from './ProfileCard.module.css';
-import { MatchsicButton } from '../MatchsicButton';
+import { MatchsicButton } from '../utils/MatchsicButton';
 
 export const ProfilePage = () => {
 

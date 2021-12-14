@@ -1,11 +1,14 @@
 import React, { useState } from 'react';
 import { Col, Form, InputGroup, Row } from 'react-bootstrap';
 import { Link, useNavigate } from 'react-router-dom';
-import { MatchsicButton } from '../MatchsicButton';
-import { MatchsicGreenBox } from '../MatchsicGreenBox';
+import { MatchsicButton } from '../utils/MatchsicButton';
+import { MatchsicGreenBox } from '../utils/MatchsicGreenBox';
 import { useFormFields } from '../../utilities/form-hooks';
 
 import classes from './LoginPage.module.css';
+import { userService } from '../_services';
+import { useAppDispatch } from '../store/hooks';
+import { loggedIn } from '../store/storeSlice';
 
 const loginButtonStyle = {
   color: '#0BA55D',
@@ -17,7 +20,6 @@ const loginButtonStyle = {
 }
 
 interface LoginPageProps {
-  setUserToken: (token: string) => void,
 }
 
 
@@ -30,6 +32,8 @@ export const LoginPage = (props: LoginPageProps) => {
     password: '',
   });
 
+  const dispatch = useAppDispatch();
+  
   const handleSubmit = (ev: React.FormEvent) => {
     
     const form = ev.target as HTMLFormElement;
@@ -41,17 +45,19 @@ export const LoginPage = (props: LoginPageProps) => {
       return;
     }
 
-    const {username} = fields;
+    const {username, password} = fields;
 
     // Send login request to server
-    const token = `${username}'s token`;
-
-    // if login successful, set user token in local storage
-    props.setUserToken(token);
-    navigate('/home');
-    return;
-
-    // if login unsuccessful, show error message
+    userService.login(username, password)
+      .then(user => {
+        // if login successful, set user token in local storage
+        dispatch(loggedIn(user));
+        navigate('/home');
+      })
+      .catch(err => {
+        // if login unsuccessful, show error message
+        alert(err);
+      });
   }
 
 
