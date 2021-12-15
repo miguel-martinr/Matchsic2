@@ -7,7 +7,7 @@ import { useFormFields } from '../../utilities/form-hooks';
 
 import classes from './LoginPage.module.css';
 import { userService } from '../_services';
-import { useAppDispatch } from '../store/hooks';
+import { useAppDispatch, useAppSelector } from '../store/hooks';
 import { loggedIn } from '../store/storeSlice';
 
 const loginButtonStyle = {
@@ -24,6 +24,8 @@ interface LoginPageProps {
 
 
 export const LoginPage = (props: LoginPageProps) => {
+
+  const userSession = useAppSelector(state => state.matchsic.userSession);
 
   const [validated, setValidated] = useState(false);
   const [invalidFeedback, setInvalidFeedBack] = useState({
@@ -73,11 +75,7 @@ export const LoginPage = (props: LoginPageProps) => {
 
   const getMainInvalidFeedBack = () => {
     if (validated && !fields.username) return 'Completa este campo';
-    if (invalidFeedback.fromServer && fields.usernamme) {
-      setInvalidFeedBack({...invalidFeedback, fromServer: false});
-      setValidated(false);
-      return '';
-    }
+    if (invalidFeedback.fromServer && fields.usernamme) return '';
     if (validated && invalidFeedback.fromServer) return invalidFeedback.message;
   }
 
