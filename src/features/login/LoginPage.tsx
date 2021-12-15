@@ -25,8 +25,6 @@ interface LoginPageProps {
 
 export const LoginPage = (props: LoginPageProps) => {
 
-  const userSession = useAppSelector(state => state.matchsic.userSession);
-
   const [validated, setValidated] = useState(false);
   const [invalidFeedback, setInvalidFeedBack] = useState({
     message: 'Completa este campo',
