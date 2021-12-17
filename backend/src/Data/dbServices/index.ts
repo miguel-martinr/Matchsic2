@@ -1,5 +1,5 @@
-import {user} from './user.db.service';
+import {user} from './user.db';
 
-export const dbService = {
+export const db = {
   user,
 };
