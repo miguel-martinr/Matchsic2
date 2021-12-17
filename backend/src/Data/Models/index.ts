@@ -1,0 +1,2 @@
+export {UserModel} from './user';
+
