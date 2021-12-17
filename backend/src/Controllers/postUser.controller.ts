@@ -13,8 +13,10 @@ export const postUser = async (req: Request, res: Response, next: NextFunction) 
     next();
   } catch (error: any) {
     const errorMessage = error.message || 'unknown';
-    console.log(`Error while posting user: ${errorMessage}`);
-    res.sendStatus(500); // Internal server error
-    next(error);
+    // console.log(`Error while posting user: ${errorMessage}`);
+    res.status(500).send({
+      error: errorMessage,
+    }); // Internal server error
+    // next(error); // Pass error to error handler?
   }
 };
