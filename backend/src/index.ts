@@ -1,4 +1,5 @@
 import express from 'express';
+import {connectDB} from './Data/DB/connect.db';
 import {router} from './Routers';
 
 
@@ -16,6 +17,12 @@ app.get('/greetings', (req, res) => {
   });
 });
 
-app.listen(port, () => {
-  console.log(`Matchsic backend is listening on port ${port}`);
+connectDB().then(() => {
+  console.log(`Database connected`);
+  app.listen(port, () => {
+    console.log(`Matchsic backend is listening on port ${port}`);
+  });
+}).catch((error: any) => {
+  const errorMessage = error.message || 'unknown';
+  console.log(`Error while running App: ${errorMessage}`);
 });
