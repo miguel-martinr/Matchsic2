@@ -16,7 +16,6 @@ app.get('/greetings', (req, res) => {
   });
 });
 
-
 app.listen(port, () => {
   console.log(`Matchsic backend is listening on port ${port}`);
 });
