@@ -1,10 +1,12 @@
 import express from 'express';
+import {router} from './Routers';
 
 
 const app = express();
 
 app.use(express.static('public'));
 
+app.use(router);
 
 const port = process.env.PORT || 3000;
 
