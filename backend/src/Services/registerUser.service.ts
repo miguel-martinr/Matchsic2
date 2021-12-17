@@ -1,7 +1,7 @@
 import {db} from '../Data/DB';
 import {UserInterface} from '../Data/Models/user';
 
-export const registerUser = async (user: UserInterface) => {
+export const registerUserService = async (user: UserInterface) => {
   try {
     return await db.user.addUser(user);
   } catch (error: any) {
