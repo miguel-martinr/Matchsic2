@@ -8,4 +8,4 @@ export interface UserInterface extends mongoose.Document {
   password: string,
 }
 
-export const UserModel = mongoose.model<UserInterface>('UserModel', UserSchema);
+export const UserModel = mongoose.model<UserInterface>('users', UserSchema);

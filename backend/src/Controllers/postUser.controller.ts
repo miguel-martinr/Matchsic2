@@ -5,8 +5,11 @@ import {Request, Response, NextFunction} from 'express';
 export const postUser = async (req: Request, res: Response, next: NextFunction) => {
   const {user} = req.body;
   try {
-    await registerUserService(user);
-    res.sendStatus(201); // User created
+    const createdUser = await registerUserService(user);
+
+    res.status(201).send({
+      message: `Welcome to Matchsic, ${createdUser.username}!`,
+    }); // User created
     next();
   } catch (error: any) {
     const errorMessage = error.message || 'unknown';

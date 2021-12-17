@@ -1,11 +1,14 @@
 
-import * as mongoose from 'mongoose';
+import mongoose from 'mongoose';
+import dotenv from 'dotenv';
+dotenv.config({path: '../.env'});
 
-const databaseURL = process.env.MONGODB_URL || 'mongodb://localhost:27017/matchsic';
+
+const databaseURL = process.env.MONGODB_URL;
 
 export const connectDB = async () => {
   try {
-    return await mongoose.connect(databaseURL);
+    return await mongoose.connect(databaseURL || '');
   } catch (error: any) {
     const errorMessage = error.message || 'unknown';
     throw new Error(`Error while connecting to database: ${errorMessage}`);
