@@ -1,3 +1,4 @@
+import {ShallowUser} from '../../types/user';
 import {UserInterface, UserModel} from '../Models/user';
 
 const addUser = async (user: UserInterface) => {
@@ -10,7 +11,18 @@ const addUser = async (user: UserInterface) => {
   }
 };
 
+
+const verify = async (user: ShallowUser) => {
+  try {
+    const existingUser = await UserModel.findOne(user);
+    return existingUser;
+  } catch (error: any) {
+    throw new Error(error);
+  }
+};
+
 export const user = {
   addUser,
+  verify,
 };
 
