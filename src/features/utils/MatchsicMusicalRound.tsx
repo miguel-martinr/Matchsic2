@@ -15,7 +15,7 @@ const TextBold = {
 
 
 interface MatchsicMusicalRoundProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
-    music: string
+    music: string,
 }
 
 
@@ -24,6 +24,7 @@ interface MatchsicMusicalRoundProps extends React.ButtonHTMLAttributes<HTMLButto
 export const MatchsicMusicalRound = (props: MatchsicMusicalRoundProps) => {
   
   const{music} = props;
+
   let color;
   switch (music) {
       case "Pop":
@@ -43,14 +44,16 @@ export const MatchsicMusicalRound = (props: MatchsicMusicalRoundProps) => {
       backgroundColor: color,
       border: '2px rgb(0, 0, 0) solid',
       borderRadius: '15px',
-      textAlign: 'center',
+      textAlign: 'center' as 'center',
       margin: '5px',
       boxShadow: '0 5px 10px 0 rgba(0, 0, 0, 0.2)',
   }
 
   return (
-    <Col style={style}>
+
+      <Col style={style} >
         {music}
-    </Col>
+      </Col>
+
   )
 }
