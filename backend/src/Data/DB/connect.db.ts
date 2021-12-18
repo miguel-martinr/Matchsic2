@@ -4,7 +4,8 @@ import dotenv from 'dotenv';
 dotenv.config({path: '../.env'});
 
 
-const databaseURL = process.env.MONGODB_URL;
+const databaseURL = 'mongodb://localhost:27017/matchsic';
+//  databaseURL = process.env.MONGODB_URL;
 
 export const connectDB = async () => {
   try {
