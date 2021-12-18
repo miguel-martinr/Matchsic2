@@ -11,7 +11,8 @@
 }
 
 .mainFrame {
-  height: 100vh; /* So BottomBar does not move */
+  height: 100vh;
+  background-color:  #EEEEEE; /* So BottomBar does not move */
 }
 
 
