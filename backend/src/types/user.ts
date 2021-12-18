@@ -27,3 +27,8 @@ export interface ProfileData {
   description: string,
   musicGenres: string[],
 }
+
+export interface ShallowUser {
+  username: string,
+  password: string,
+};
