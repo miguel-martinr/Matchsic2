@@ -8,7 +8,7 @@
     "backend/watch": "cd backend && tsc-watch --onSuccess \"node dist/index.js\"",
     "backend/start": "cd backend && tsc && node dist/index.js",
     "backend/test": "cypress run --spec \"cypress/integration/backend/**/*.spec.ts\"",
-    "cy/backend": "(start-server-and-test backend/start http://localhost:3000 backend/test) 2>$null",
+    "cy/backend": "start-server-and-test backend/start http://localhost:3000 backend/test",
     "cypress:open": "cypress open"
   },
   "engines": {

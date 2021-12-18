@@ -1,6 +1,6 @@
 import {Request, Response} from 'express';
 import jwt from 'jsonwebtoken';
-import {verifyUserService} from '../Services/verifyUser.service';
+import {verifyUserService} from '../Services';
 
 import dotenv from 'dotenv';
 
