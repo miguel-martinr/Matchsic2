@@ -51,6 +51,9 @@ export const RegisterPage = () => {
             <Form.Group className="mb-5" controlId="password">
               <Form.Control type="password" placeholder="Contraseña" />
             </Form.Group>
+            <Form.Group className="mb-5" controlId="passwordConfirm">
+              <Form.Control type="password" placeholder="Repite la contraseña" />
+            </Form.Group>
             <MatchsicButton text="Registrarme" style={registerButtonStyle}></MatchsicButton>
           </Form>
         </Col>

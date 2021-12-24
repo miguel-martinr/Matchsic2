@@ -7,7 +7,11 @@ describe('When I visit register page', () => {
   })
   
   it('It should show me a \'Name\' input with a placeholder', () => {
-    cy.get('input[id="name"]').should('have.attr', 'placeholder', 'Tu nombre');
+    cy.get('input[id="name"]').should('have.attr', 'placeholder', 'Nombre');
+  });
+
+  it('It should show me a \'Second name\' input with a placeholder', () => {
+    cy.get('input[id="secondName"]').should('have.attr', 'placeholder', 'Apellidos');
   });
 
   it('It should show me an username input with a placeholder', () => {
