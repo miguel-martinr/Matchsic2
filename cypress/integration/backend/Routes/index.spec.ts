@@ -47,6 +47,27 @@ describe('API /user', () => {
     });
   });
 
+  it('If username is already taken it should return a non-ok status', () => {
+    const request = {
+      user: {
+        name: 'Some One Bis',
+        username: 'RodrygoG',
+        email: 'someonebis@rmadrid.com',
+        password: '123456',
+      }
+    };
+
+    return cy.request({
+      method: 'POST',
+      url: 'http://localhost:3000/user',
+      body: request,
+      failOnStatusCode: false,
+    }).then(res => {
+      expect(res.status).to.not.equal(201);
+      // TODO: Check if the error message is the same as the one in the backend
+    });
+  });
+
 
   it('An existing user should be able to login', () => {
     const request = {
