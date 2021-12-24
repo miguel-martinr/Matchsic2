@@ -1,5 +1,5 @@
 
-const notificationsPagePath = 'http://localhost:3000/notifications';
+const notificationsPagePath = '/notifications';
 
 describe('When I go to notifications page and there are no notifications', () => {
 

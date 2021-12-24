@@ -1,4 +1,4 @@
-const registerPagePath = 'http://localhost:3000/register';
+const registerPagePath = '/register';
 
 describe('When I visit register page', () => {
   
