@@ -42,6 +42,9 @@ export const RegisterPage = () => {
             <Form.Group className="mb-5" controlId="secondName">
               <Form.Control type="text" placeholder="Apellidos" />
             </Form.Group>
+            <Form.Group className="mb-5" controlId="birthDate">
+              <Form.Control type="date" max="2005-17-02"/>
+            </Form.Group>
             <Form.Group className="mb-5" controlId="username">
               <Form.Control type="text" placeholder="Nombre de usuario" />
             </Form.Group>

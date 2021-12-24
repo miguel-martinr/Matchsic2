@@ -14,6 +14,10 @@ describe('When I visit register page', () => {
     cy.get('input[id="secondName"]').should('have.attr', 'placeholder', 'Apellidos');
   });
 
+  it('It should show me a \'Birth date\' input with a maximum date', () => {
+    cy.get('input[id="birthDate"]').should('have.attr', 'max', '2005-17-02');
+  });
+
   it('It should show me an username input with a placeholder', () => {
     cy.get('input[id="username"]').should('have.attr', 'placeholder', 'Nombre de usuario');
   });
