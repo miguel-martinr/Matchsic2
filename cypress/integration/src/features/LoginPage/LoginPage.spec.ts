@@ -1,5 +1,5 @@
 
-const loginPagePath = 'http://localhost:3000/login';
+const loginPagePath = '/login';
 
 
 describe('When I visit login page', () => {
