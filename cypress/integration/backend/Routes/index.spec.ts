@@ -36,7 +36,12 @@ describe('API /user', () => {
       }
     };
 
-    return cy.request('POST', 'http://localhost:3000/user', request).then(res => {
+    return cy.request({
+      method: 'POST',
+      url: 'http://localhost:3000/user',
+      body: request,
+      failOnStatusCode: false,
+    }).then(res => {
       expect(res.status).to.not.equal(201);
       // TODO: Check if the error message is the same as the one in the backend
     });
