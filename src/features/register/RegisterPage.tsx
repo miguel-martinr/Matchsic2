@@ -3,6 +3,16 @@ import { Row, Col, Form } from 'react-bootstrap'
 import { MatchsicButton } from '../utils/MatchsicButton'
 import { MatchsicGreenBox } from '../utils/MatchsicGreenBox'
 
+
+const registerButtonStyle = {
+  color: '#0BA55D',
+  borderRadius: '100px',
+  border: 'none',
+  width: '8em',
+  height: '3em',
+  fontWeight: 'bold',
+}
+
 export const RegisterPage = () => {
   const handleSubmit = (ev: React.FormEvent<HTMLFormElement>) => {
     ev.preventDefault();
@@ -41,11 +51,13 @@ export const RegisterPage = () => {
             <Form.Group className="mb-5" controlId="password">
               <Form.Control type="password" placeholder="Contraseña" />
             </Form.Group>
-            <MatchsicButton text="Registrarme" ></MatchsicButton>
+            <Form.Group className="mb-5" controlId="passwordConfirm">
+              <Form.Control type="password" placeholder="Repite la contraseña" />
+            </Form.Group>
+            <MatchsicButton text="Registrarme" style={registerButtonStyle}></MatchsicButton>
           </Form>
         </Col>
       </Row>
-
     </MatchsicGreenBox>
   )
 }
