@@ -26,6 +26,22 @@ describe('API /user', () => {
   });
 
 
+  it('If email is already taken it should return a non-ok status', () => {
+    const request = {
+      user: {
+        name: 'Some One',
+        username: 'Someone',
+        email: 'vinijr@rmadrid.com',
+        password: '123456',
+      }
+    };
+
+    return cy.request('POST', 'http://localhost:3000/user', request).then(res => {
+      expect(res.status).to.not.equal(201);
+      // TODO: Check if the error message is the same as the one in the backend
+    });
+  });
+
 
   it('An existing user should be able to login', () => {
     const request = {
@@ -38,8 +54,10 @@ describe('API /user', () => {
     cy.request('http://localhost:3000/login', request).then(res => {
       expect(res.status).to.eq(200);
       expect(res.headers['set-cookie']).to.exist;
-    })
+    });
   });
+
+
 });
 
 
