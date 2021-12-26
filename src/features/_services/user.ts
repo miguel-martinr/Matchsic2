@@ -15,7 +15,7 @@ const login = (username: string, password: string) => {
         const {password, ...user} = register;
         resolve(user);
       } else {
-        reject('Invalid username or password');
+        reject('Nombre de usuario o contraseña incorrectos');
       }
     }, 500);
   });

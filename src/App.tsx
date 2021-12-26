@@ -8,6 +8,7 @@ import { Route, Routes } from 'react-router-dom';
 import { LoginPage, ProfilePage, RegisterPage, MatchsicFrame } from './features/utils';
 import { NotificationPage } from './features/notifications/NotificationPage';
 import { useAppSelector } from './features/store/hooks';
+import { HomePage } from './features/home/HomePage';
 
 
 
@@ -21,7 +22,7 @@ function App() {
 
   const loginPage = <LoginPage/>;
   const registerPage = <RegisterPage></RegisterPage>;
-  const tempMap = <div style={{height: '100vh'}}>Home Map</div>;
+  // const tempMap = <div style={{height: '100vh'}}>Home Map</div>;
   return (
     <Routes>
       {
@@ -36,7 +37,7 @@ function App() {
           ( // User is logged in
             <Fragment>
               <Route path='/' element={<MatchsicFrame />}>
-                <Route path='/home' element={tempMap} />
+                <Route path='/home' element={<HomePage />} />
                 <Route path='/profile' element={<ProfilePage />} />
                 <Route path='/notifications' element={<NotificationPage />} />
               </Route>
