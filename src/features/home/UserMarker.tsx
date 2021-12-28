@@ -22,6 +22,7 @@ export const UserMarker = (props: UserMarkerProps) => {
 
   const position: [number, number] = [location.coordinates.latitude, location.coordinates.longitude];
   return (
+
     <Marker
       icon={icon}
       position={position}
@@ -29,7 +30,6 @@ export const UserMarker = (props: UserMarkerProps) => {
       <UserPopup
         user={props.user}
       />
-    
     </Marker>
   )
 }

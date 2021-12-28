@@ -25,10 +25,10 @@ export const UserPopup = (props: UserPopupProps) => {
           <Col className='mb-2'><span className={'h6 ' + classes.username}>{username}</span></Col>
         </Row>
         <Row>
-          <Col className='p-0' xs={4}>
+          <Col className='p-0' xs={3}>
             <img className={classes.coverImage} src={music.coverImage.url} />
           </Col>
-          <Col className='p-0' xs={8}>
+          <Col className='p-0' xs={9}>
             <Row>
               <Col><span className={classes.listeningTag}>Escuchando:</span></Col>
             </Row>
