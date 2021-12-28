@@ -1,0 +1,25 @@
+.popupContainer {
+  /* width: 10rem; */
+}
+
+
+.coverImage {
+  width: 3rem;
+  height: 3rem;
+  border-radius: 50%;
+}
+
+.username {
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+.listeningTag {
+  font-size: 0.8rem;
+  color: rgb(97, 97, 97);
+}
+
+.trackContent {
+  font-size: 0.9rem;
+  font-weight: 800;
+}
