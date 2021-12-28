@@ -6,17 +6,19 @@ interface MatchsicState {
   userProfile: ProfileData,
   userSession: UserData,
   nearUsers: UserData[],
-  notifications: NotificationData[], 
+  notifications: NotificationData[],
   userIsLoggedIn: boolean,
 }
 
 
 const initialState: MatchsicState = {
-  userProfile: {name: '', description: '', musicGenres: []},
-  userSession: {username: 'Lena', profileLink: '', 
-    profilePicture: {url: '', width: 0, height: 0}, 
-    music: {trackName: '', authorsNames: [], coverImage: {url: '', width: 0, height: 0}, status: 'stopped'}, 
-    location: {coordinates: {latitude: 0, longitude: 0}}},
+  userProfile: { name: '', description: '', musicGenres: [] },
+  userSession: {
+    username: 'Lena_00', profileLink: '',
+    profilePicture: { url: '', width: 0, height: 0 },
+    music: { trackName: 'The Rover', authorsNames: ['Led Zeppelin'], coverImage: { url: 'https://extrachill.com/wp-content/uploads/2021/03/led-zeppelin-logos.jpeg', width: 0, height: 0 }, status: 'stopped' },
+    location: { coordinates: { latitude: 28.47762873997604, longitude: -16.312475617040874 } }
+  },
 
   nearUsers: [],
   notifications: [],
@@ -32,7 +34,7 @@ const matchsicSlice = createSlice({
       return state;
     },
 
-    loggedIn(state, action: PayloadAction<{username: string, name: string}>) {
+    loggedIn(state, action: PayloadAction<{ username: string, name: string }>) {
       const { username, name } = action.payload;
       state.userSession.username = username;
       state.userProfile.name = name;

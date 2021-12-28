@@ -8,7 +8,7 @@ export const MatchsicTile = () => {
     url: "https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}",
     attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
     id: 'mapbox/streets-v11',
-    maxZoom: 18,
+    maxZoom: 20,
     tileSize: 512,
     zoomOffset: -1,
   }
