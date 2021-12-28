@@ -8,3 +8,8 @@
   height: 3rem;
   border-radius: 50%;
 }
+
+.username {
+  font-size: 1.2rem;
+  font-weight: bold;
+}

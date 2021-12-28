@@ -15,7 +15,7 @@ export const UserPopup = (props: UserPopupProps) => {
     <Popup>
       <Container className={'p-0 ' + classes.popupContainer}>
         <Row>
-          <Col className='p-0'><span className='h6'>{username}</span></Col>
+          <Col className='mb-2'><span className={'h6 ' + classes.username}>{username}</span></Col>
         </Row>
         <Row>
           <Col className='p-0' xs={4}>
