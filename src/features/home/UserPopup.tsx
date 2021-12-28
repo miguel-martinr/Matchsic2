@@ -8,12 +8,19 @@ interface UserPopupProps {
   user: UserData,
 }
 
+const getPopupWidth = (trackContent: string)=> {
+  const width = Math.min(15, trackContent.length * 0.8).toFixed(2);
+  return `${width}rem`;
+}
 
 export const UserPopup = (props: UserPopupProps) => {
   const { username, music } = props.user;
+
+  const trackContent = `${music.trackName}, ${music.authorsNames.join(', ')}`;
+  const popupWidth = getPopupWidth(trackContent);
   return (
     <Popup>
-      <Container className={'p-0 ' + classes.popupContainer}>
+      <Container className={'p-0 ' + classes.popupContainer} style={{width: popupWidth}}>
         <Row>
           <Col className='mb-2'><span className={'h6 ' + classes.username}>{username}</span></Col>
         </Row>
@@ -23,11 +30,11 @@ export const UserPopup = (props: UserPopupProps) => {
           </Col>
           <Col className='p-0' xs={8}>
             <Row>
-              <Col><span>Escuchando:</span></Col>
+              <Col><span className={classes.listeningTag}>Escuchando:</span></Col>
             </Row>
             <Row>
               <Col>
-                <span>
+                <span className={classes.trackContent}>
                   {music.trackName}, {music.authorsNames.join(', ')}
                 </span>
               </Col>
