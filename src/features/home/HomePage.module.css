@@ -1,6 +1,15 @@
+
 .map {
-  height: 85.5vh;
+  
+  height: 86.5vh;
 }
+
+@media only screen and (max-width: 600px) {
+  .map {
+    height: calc(var(--vh, 1vh) * 84);
+  }
+}
+
 
 .gray_background {
   background-color: #cecece;

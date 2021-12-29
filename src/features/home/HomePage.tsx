@@ -9,6 +9,9 @@ import { UserMarker } from './UserMarker';
 
 export const HomePage = () => {
 
+  let vh = window.innerHeight * 0.01;
+  document.documentElement.style.setProperty('--vh', `${vh}px`);
+  
   const { userSession } = useAppSelector(state => state.matchsic);
   const [map, setMap] = useState<L.Map | null>(null);
   return (
