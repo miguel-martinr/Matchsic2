@@ -1,0 +1,13 @@
+.controlContainer {
+  background-color: #fff;
+  width: 3rem;
+  height: 3rem;
+  border-radius: 50%;
+  display: flex;
+  margin-bottom: 2rem !important;
+}
+
+.controlLogo {
+  width: 2rem;
+  margin: auto;
+}
