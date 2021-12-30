@@ -37,7 +37,6 @@ describe('User service tests', () => {
     cy.get('button').click();
 
     cy.wait('@getData').url().should('include', '/home');
-
   });
 
 
