@@ -69,6 +69,7 @@ describe('API /user', () => {
   });
 
 
+  
   it('An existing user should be able to login', () => {
     const request = {
       user: {
@@ -81,6 +82,15 @@ describe('API /user', () => {
       expect(res.status).to.eq(200);
       expect(res.headers['set-cookie']).to.exist;
     });
+  });
+
+  it('It should retrieve near users as an array', () => {
+    // With user logged in
+    cy.request('/near-users')
+      .then(res => {
+        expect(res.status).to.eq(200);
+        expect(res.body.users).to.be.an('array');
+      });
   });
 
 
