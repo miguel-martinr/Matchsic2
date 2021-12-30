@@ -16,9 +16,7 @@ describe('User service tests', () => {
     cy.get('input[id="password"]').type('1234');
     cy.get('button').click();
 
-  cy.wait('@getData').url().should('include', '/login');    
-
-    
+    cy.wait('@getData').url().should('include', '/login');
 
   });
 });
