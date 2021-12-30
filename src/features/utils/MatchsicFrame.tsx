@@ -1,5 +1,6 @@
 import React, { Fragment, useEffect } from 'react'
 import { Outlet, useNavigate } from 'react-router'
+import { userService } from '../_services';
 import { BottomBar } from './BottomBar';
 import { TopBar } from './TopBar';
 
@@ -7,11 +8,8 @@ export const MatchsicFrame = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    const currentPath = window.location.href;
-
-    if (currentPath[currentPath.length - 1] === '/') { // If currentPath is root (/)
-      navigate('/home');  
-    }
+    userService.getData().then(data => {});
+    navigate('/home');
   }, []);
 
   return (
