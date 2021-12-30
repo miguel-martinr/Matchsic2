@@ -1,3 +1,4 @@
+import { matchsicAxios } from "./Axios/axios";
 
 
 const fakeDB = {
@@ -29,7 +30,14 @@ const logout = () => {
   });
 }
 
+
+const getData = () => {
+  return matchsicAxios.get('/user/data');
+}
+
+
 export const userService = {
   login,
   logout,
+  getData,
 }

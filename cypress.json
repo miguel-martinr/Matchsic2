@@ -2,4 +2,5 @@
     "video": false,
     "screenshotOnRunFailure": false,
     "baseUrl": "http://localhost:3000"
+    
 }
