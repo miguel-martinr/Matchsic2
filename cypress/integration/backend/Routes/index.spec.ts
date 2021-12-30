@@ -92,8 +92,6 @@ describe('API /user', () => {
         expect(res.body.users).to.be.an('array');
       });
   });
-
-
 });
 
 
