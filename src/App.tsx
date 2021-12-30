@@ -9,6 +9,7 @@ import { LoginPage, ProfilePage, RegisterPage, MatchsicFrame } from './features/
 import { NotificationPage } from './features/notifications/NotificationPage';
 import { useAppSelector } from './features/store/hooks';
 import { HomePage } from './features/home/HomePage';
+import { NotLogged } from './features/utils/NotLogged';
 
 
 
@@ -16,11 +17,11 @@ import { HomePage } from './features/home/HomePage';
 
 function App() {
   // Go to login if user is not logged in
-  
-  
+
+
   const userIsLoggedIn = useAppSelector(state => state.matchsic.userIsLoggedIn);
 
-  const loginPage = <LoginPage/>;
+  const loginPage = <LoginPage />;
   const registerPage = <RegisterPage></RegisterPage>;
   // const tempMap = <div style={{height: '100vh'}}>Home Map</div>;
   return (
@@ -29,8 +30,10 @@ function App() {
         !userIsLoggedIn ? // User is NOT logged in
           (
             <Fragment>
-              <Route path='/login' element={loginPage} />
-              <Route path='/register' element={registerPage} />
+              <Route path='/' element={<NotLogged />}>
+                <Route path='/login' element={loginPage} />
+                <Route path='/register' element={registerPage} />
+              </Route>
             </Fragment>
           )
           :
