@@ -1,7 +1,7 @@
 import {Request, Response} from 'express';
 import {getNearUsersService} from '../Services';
 
-export const getLogin = async (req: Request, res: Response) => {
+export const getNearUsers = async (req: Request, res: Response) => {
   const error = {
     statusCode: 500,
     message: 'Unknown',
