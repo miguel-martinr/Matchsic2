@@ -1,7 +1,7 @@
 import * as mongoose from 'mongoose';
 
 export const ActiveUserSchema = new mongoose.Schema({
-  userId: {type: String, required: true},
+  userId: {type: String, required: true, unique: true},
   username: {type: String, required: true},
   profileLink: {type: String, required: true},
   location: {
