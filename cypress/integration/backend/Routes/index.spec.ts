@@ -86,7 +86,12 @@ describe('API /user', () => {
 
   it("Should post a user's activeData", () => {
     const activeData: ActiveUserInterface = {
+      // set by server
       userId: '61bd4e30c59b1240d579b0b3', // RodrygoG
+      username: 'RodrygoG',
+      profileLink: 'someProfileLink',
+
+      // sent by client
       location: {coordinates: {latitude: -23.5, longitude: -46.6}},
       music: {
         trackName: 'The Rover',
@@ -105,14 +110,14 @@ describe('API /user', () => {
   });
 
 
-  // it('It should retrieve near users as an array', () => {
-  //   // With user logged in
-  //   cy.request('/near-users', {id: '61bd4e30c59b1240d579b0b3'})
-  //     .then(res => {
-  //       expect(res.status).to.eq(200);
-  //       expect(res.body.nearUsers).to.be.an('array');
-  //     });
-  // });  
+  it('It should retrieve near users as an array', () => {
+    // With user logged in
+    cy.request('/near-users', {id: '61bd4e30c59b1240d579b0b3'})
+      .then(res => {
+        expect(res.status).to.eq(200);
+        expect(res.body.nearUsers).to.be.an('array');
+      });
+  });  
 });
 
 

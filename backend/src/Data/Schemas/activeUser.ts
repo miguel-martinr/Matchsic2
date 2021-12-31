@@ -2,6 +2,8 @@ import * as mongoose from 'mongoose';
 
 export const ActiveUserSchema = new mongoose.Schema({
   userId: {type: String, required: true},
+  username: {type: String, required: true},
+  profileLink: {type: String, required: true},
   location: {
     coordinates: {
       latitude: {type: Number, required: true},
