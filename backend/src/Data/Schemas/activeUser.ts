@@ -20,9 +20,9 @@ export const ActiveUserSchema = new mongoose.Schema({
     status: {type: String, required: true},
   },
 
-  credentials: {
-    spotify: {
-      accessToken: {type: String, required: true},
-    },
-  },
+  // credentials: {
+  //   spotify: {
+  //     accessToken: {type: String, required: true},
+  //   },
+  // },
 });
