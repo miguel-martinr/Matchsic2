@@ -26,12 +26,14 @@ const verify = async (user: ShallowUser) => {
 
 const getNearUsers = async (userId: string) => {
   try {
+    // eslint-disable-next-line max-len
     const thisUser = await ActiveUserModel.findOne({userId});
     if (!thisUser) {
       throw new Error('Active user not found');
     }
 
-    const nearUsers = await ActiveUserModel.find({});
+    // eslint-disable-next-line max-len
+    const nearUsers = await ActiveUserModel.find({}).select('-_id -__v -userId');
     return nearUsers;
   } catch (error: any) {
     const errorMessage = error.message || 'unknown';
