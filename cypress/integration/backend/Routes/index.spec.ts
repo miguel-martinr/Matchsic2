@@ -1,5 +1,5 @@
 import { config } from '../../../../backend/src/config';
-
+import { ActiveUserInterface } from '../../../../backend/src/Data/Models/activeUsers';
 /** 
  * Remember to change the mode to 'development' in the config.ts file
  * before running these tests!
@@ -69,6 +69,7 @@ describe('API /user', () => {
   });
 
 
+  
   it('An existing user should be able to login', () => {
     const request = {
       user: {
@@ -83,7 +84,14 @@ describe('API /user', () => {
     });
   });
 
-
+  it('It should retrieve near users as an array', () => {
+    // With user logged in
+    cy.request('/near-users', {id: '61bd4e30c59b1240d579b0b3'})
+      .then(res => {
+        expect(res.status).to.eq(200);
+        expect(res.body.nearUsers).to.be.an('array');
+      });
+  });  
 });
 
 
