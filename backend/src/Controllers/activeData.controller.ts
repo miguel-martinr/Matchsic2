@@ -10,6 +10,13 @@ export const postActiveData = async (req: Request, res: Response) => {
 
   try {
     const activeData = req.body.activeData as ActiveUserInterface;
+
+    if (!activeData) {
+      error.statusCode = 400;
+      error.message = 'No active data provided';
+      throw new Error(error.message);
+    }
+
     updateActiveDataService(activeData);
     return res.status(200).json({message: 'Active data has been set'});
   } catch (err) {
