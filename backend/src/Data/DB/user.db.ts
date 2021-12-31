@@ -58,7 +58,7 @@ const updateActiveData = async (user: ActiveUserInterface | string,
 
     // Saves user to active-users
     const activeUser = new ActiveUserModel(user);
-    return await activeUser.save();
+    return activeUser.save();
   } catch (err: any) {
     const errorMessage = err.message || 'unknown';
     throw new Error(`DB setActive error: ${errorMessage}`);

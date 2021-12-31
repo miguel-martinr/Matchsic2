@@ -17,7 +17,7 @@ export const postActiveData = async (req: Request, res: Response) => {
       throw new Error(error.message);
     }
 
-    updateActiveDataService(activeData);
+    await updateActiveDataService(activeData);
     return res.status(200).json({message: 'Active data has been set'});
   } catch (err) {
     console.log(`error: `, err);
