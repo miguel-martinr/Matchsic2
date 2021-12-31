@@ -68,7 +68,8 @@ const updateActiveData = async (user: Partial<ActiveUserInterface>) => {
     // Updates user active data
     const userExists = await ActiveUserModel.findOne({userId: user.userId});
     if (userExists) {
-      return await ActiveUserModel.updateOne({userId: user.userId}, user);
+      // eslint-disable-next-line max-len
+      return await ActiveUserModel.findOneAndUpdate({userId: user.userId}, user, {new: true}).select('-_id -__v -userId');
     }
   } catch (err: any) {
     const errorMessage = err.message || 'unknown';
