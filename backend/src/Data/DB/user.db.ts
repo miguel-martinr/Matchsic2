@@ -40,15 +40,24 @@ const getNearUsers = async (userId: string) => {
 };
 
 // eslint-disable-next-line max-len
-const setActive = async (user: ActiveUserInterface | string,
-    active: boolean) => {
+const updateActiveData = async (user: ActiveUserInterface | string,
+    active: boolean = true) => {
   try {
+    // Deletes user from active-users
     if (typeof user === 'string' && active === false) {
       await ActiveUserModel.deleteOne({userId: user});
       return;
     }
 
-    const activeUser = new ActiveUserModel(user as ActiveUserInterface);
+    // Updates user active data
+    user = user as ActiveUserInterface;
+    const userExists = await ActiveUserModel.findOne({userId: user.userId});
+    if (userExists) {
+      return await ActiveUserModel.updateOne({userId: user.userId}, user);
+    }
+
+    // Saves user to active-users
+    const activeUser = new ActiveUserModel(user);
     return await activeUser.save();
   } catch (err: any) {
     const errorMessage = err.message || 'unknown';
@@ -60,6 +69,6 @@ export const user = {
   addUser,
   verify,
   getNearUsers,
-  setActive,
+  updateActiveData,
 };
 
