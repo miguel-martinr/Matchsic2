@@ -89,9 +89,9 @@ describe('API /user', () => {
     cy.request('/near-users')
       .then(res => {
         expect(res.status).to.eq(200);
-        expect(res.body.users).to.be.an('array');
+        expect(res.body.nearUsers).to.be.an('array');
       });
-  });
+  });  
 });
 
 
