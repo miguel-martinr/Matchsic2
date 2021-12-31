@@ -34,7 +34,7 @@ const getNearUsers = async (userId: string) => {
     return nearUsers;
   } catch (error: any) {
     const errorMessage = error.message || 'unknown';
-    throw new Error(`Error while getting near users: ${errorMessage}`);
+    throw new Error(`DB near users error: ${errorMessage}`);
   }
 };
 
