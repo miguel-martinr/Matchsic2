@@ -42,6 +42,13 @@ export const patchActiveData = async (req: Request, res: Response) => {
     }
 
     const updateResult = await activeDataService.update(activeDataUpdate);
+
+    if (!updateResult) {
+      error.statusCode = 500;
+      error.message = 'Error while updating active data';
+      throw new Error(error.message);
+    }
+
     return res.status(200).json({
       message: 'Active data has been updated',
       activeData: updateResult,
