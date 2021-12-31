@@ -7,9 +7,10 @@
     "serve": "vite preview",
     "backend/watch": "cd backend && tsc-watch --onSuccess \"node dist/index.js\"",
     "backend/start": "cd backend && node dist/index.js",
+    "backend/compile-and-start": "cd backend && tsc && node dist/index.js",
     "backend/test": "cypress run --spec \"cypress/integration/backend/**/*.spec.ts\"",
     "fe-services/test": "cypress run --spec \"cypress/integration/src/features/services/**/*.spec.ts\"",
-    "cy/backend": "start-server-and-test backend/start http://localhost:3000 backend/test",
+    "cy/backend": "start-server-and-test backend/compile-and-start http://localhost:3000 backend/test",
     "cy/fe-services": "start-server-and-test backend/start http://localhost:3000 fe-services/test",
     "cypress:open": "cypress open"
   },
