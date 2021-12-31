@@ -2,7 +2,7 @@ import {db} from '../Data/DB';
 import {ActiveUserInterface} from '../Data/Models/activeUsers';
 
 // eslint-disable-next-line max-len
-export const updateActiveData = async (user: ActiveUserInterface | string, active: boolean) => {
+export const updateActiveDataService = async (user: ActiveUserInterface | string, active: boolean = true) => {
   try {
     return await db.user.updateActiveData(user, active);
   } catch (error: any) {
