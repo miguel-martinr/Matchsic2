@@ -1,4 +1,6 @@
+
 import {ShallowUser} from '../../types/user';
+import {ActiveUserModel} from '../Models/activeUsers';
 import {UserInterface, UserModel} from '../Models/user';
 
 const addUser = async (user: UserInterface) => {
@@ -21,8 +23,24 @@ const verify = async (user: ShallowUser) => {
   }
 };
 
+const getNearUsers = async (userId: string) => {
+  try {
+    const thisUser = await ActiveUserModel.findOne({userId});
+    if (!thisUser) {
+      throw new Error('Active user not found');
+    }
+
+    const nearUsers = await ActiveUserModel.find({});
+    return nearUsers;
+  } catch (error: any) {
+    const errorMessage = error.message || 'unknown';
+    throw new Error(`Error while getting near users: ${errorMessage}`);
+  }
+};
+
 export const user = {
   addUser,
   verify,
+  getNearUsers,
 };
 
