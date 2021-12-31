@@ -17,8 +17,9 @@ export const getNearUsers = async (req: Request, res: Response) => {
     }
 
     const nearUsers = await getNearUsersService(id);
-    res.status(200).json({nearUsers});
-  } catch (error: any) {
-    res.status(error.statusCode).json({message: error.message});
+    return res.status(200).json({nearUsers});
+  } catch (err) {
+    console.log(`error: `, err);
+    return res.status(error.statusCode).json({message: error.message});
   }
 };

@@ -1,6 +1,7 @@
 
+
 import {ShallowUser} from '../../types/user';
-import {ActiveUserModel} from '../Models/activeUsers';
+import {ActiveUserInterface, ActiveUserModel} from '../Models/activeUsers';
 import {UserInterface, UserModel} from '../Models/user';
 
 const addUser = async (user: UserInterface) => {
@@ -38,9 +39,27 @@ const getNearUsers = async (userId: string) => {
   }
 };
 
+// eslint-disable-next-line max-len
+const setActive = async (user: ActiveUserInterface | string,
+    active: boolean) => {
+  try {
+    if (typeof user === 'string' && active === false) {
+      await ActiveUserModel.deleteOne({userId: user});
+      return;
+    }
+
+    const activeUser = new ActiveUserModel(user as ActiveUserInterface);
+    return await activeUser.save();
+  } catch (err: any) {
+    const errorMessage = err.message || 'unknown';
+    throw new Error(`DB setActive error: ${errorMessage}`);
+  }
+};
+
 export const user = {
   addUser,
   verify,
   getNearUsers,
+  setActive,
 };
 
