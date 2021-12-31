@@ -41,8 +41,8 @@ const getNearUsers = async (userId: string) => {
   }
 };
 
-// eslint-disable-next-line max-len
-const updateActiveData = async (user: ActiveUserInterface | string,
+
+const setActiveData = async (user: ActiveUserInterface | string,
     active: boolean = true) => {
   try {
     // Deletes user from active-users
@@ -51,14 +51,8 @@ const updateActiveData = async (user: ActiveUserInterface | string,
       return;
     }
 
-    // Updates user active data
-    user = user as ActiveUserInterface;
-    const userExists = await ActiveUserModel.findOne({userId: user.userId});
-    if (userExists) {
-      return await ActiveUserModel.updateOne({userId: user.userId}, user);
-    }
-
     // Saves user to active-users
+    user = user as ActiveUserInterface;
     const activeUser = new ActiveUserModel(user);
     return activeUser.save();
   } catch (err: any) {
@@ -67,10 +61,26 @@ const updateActiveData = async (user: ActiveUserInterface | string,
   }
 };
 
+
+// eslint-disable-next-line max-len
+const updateActiveData = async (user: Partial<ActiveUserInterface>) => {
+  try {
+    // Updates user active data
+    const userExists = await ActiveUserModel.findOne({userId: user.userId});
+    if (userExists) {
+      return await ActiveUserModel.updateOne({userId: user.userId}, user);
+    }
+  } catch (err: any) {
+    const errorMessage = err.message || 'unknown';
+    throw new Error(`DB updateActiveData error: ${errorMessage}`);
+  }
+};
+
 export const user = {
   addUser,
   verify,
   getNearUsers,
+  setActiveData,
   updateActiveData,
 };
 
