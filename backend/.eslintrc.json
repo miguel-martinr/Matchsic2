@@ -20,6 +20,7 @@
         "@typescript-eslint"
     ],
     "rules": {
-      "new-cap": "off"
+      "new-cap": "off",
+      "linebreak-style": 0
     }
 }
