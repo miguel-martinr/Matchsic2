@@ -23,7 +23,7 @@ export const authorization = (
     req.body.id = id;
     return next();
   } catch {
-    res.status(403);
+    res.status(401); // Unauthorized
     res.json({message: 'Invalid Token'});
   }
 };
