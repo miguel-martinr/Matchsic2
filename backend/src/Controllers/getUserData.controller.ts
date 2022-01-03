@@ -4,7 +4,7 @@ import dotenv from 'dotenv';
 
 dotenv.config({path: '../.env'});
 
-export const getInfo = async (req: Request, res: Response) => {
+export const getUserData = async (req: Request, res: Response) => {
   try {
     const {id} = req.body;
     // const existingUser = await verifyUserService(user);
