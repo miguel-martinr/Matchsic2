@@ -19,7 +19,7 @@ export const getLogin = async (req: Request, res: Response) => {
       expiresIn: '30m',
     });
     return res
-        .cookie('access_token', token, {
+        .cookie('access-token', token, {
           httpOnly: true,
         })
         .status(200)
