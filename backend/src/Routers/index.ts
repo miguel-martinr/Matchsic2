@@ -1,5 +1,6 @@
 import {Router} from 'express';
-import {getLogin, postUser, authorization, getUserData} from '../Controllers';
+import {getLogin, postUser, getUserData} from '../Controllers';
+import {authorization} from '../Middleware';
 // eslint-disable-next-line max-len
 import {patchActiveData, postActiveData} from '../Controllers/activeData.controller';
 import {getNearUsers} from '../Controllers/getNearUsers.controller';
