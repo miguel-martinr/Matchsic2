@@ -95,7 +95,7 @@ describe('API /user', () => {
     const request = {
       user: {
         username: 'RodrygoG',
-        password: '123456',
+        password: '678910',
       }
     };
 
