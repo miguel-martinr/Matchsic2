@@ -77,11 +77,27 @@ const updateActiveData = async (user: Partial<ActiveUserInterface>) => {
   }
 };
 
+// eslint-disable-next-line max-len
+const getUserInfo = async (userId: string) => {
+  try {
+    // Updates user active data
+    const user = await UserModel.findById(userId).select('-_id -__v -userId');
+    if (user) {
+      // eslint-disable-next-line max-len
+      return user;
+    }
+  } catch (err: any) {
+    const errorMessage = err.message || 'unknown';
+    throw new Error(`DB User Info error: ${errorMessage}`);
+  }
+};
+
 export const user = {
   addUser,
   verify,
   getNearUsers,
   setActiveData,
   updateActiveData,
+  getUserInfo,
 };
 

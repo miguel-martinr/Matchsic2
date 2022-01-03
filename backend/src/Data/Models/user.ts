@@ -6,6 +6,9 @@ export interface UserInterface extends mongoose.Document {
   username: string,
   email: string,
   password: string,
+  description: string,
+  musicPreference: [string],
+  socialNetwork: [string],
 }
 
 export const UserModel = mongoose.model<UserInterface>('users', UserSchema);

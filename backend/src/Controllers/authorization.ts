@@ -21,8 +21,6 @@ export const authorization = (
     const {id} = jwt.verify(jwtToken,
         process.env.JWT_SECRET as string) as jwt.UserIDJwtPayload;
     req.body.id = id;
-    res.status(500);
-    res.json({message: 'Succesful Token'});
     return next();
   } catch {
     res.status(403);
