@@ -8,7 +8,10 @@ describe('PATCH /user/active-data tests', () => {
   it('It should update a user\'s activeData', () => {
     expectedActiveData.music.trackName = 'Stairway to Heaven';
     expectedActiveData.location.coordinates = {latitude: 5, longitude: 3};
-    
+    expectedActiveData.username = 'ViniJr';
+    expectedActiveData.profileLink = 'http://localhost:3000/ViniJr';
+
+
     const activeDataUpdate = { 
       music: expectedActiveData.music,
       location: expectedActiveData.location,

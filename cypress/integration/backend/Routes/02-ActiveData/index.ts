@@ -1,10 +1,7 @@
 import { ActiveUserInterface } from "../../../../../backend/src/Data/Models/activeUsers";
 
 export const activeData: Partial<ActiveUserInterface> = {
-  // set by server
-  username: 'RodrygoG',
-  profileLink: 'someProfileLink',
-
+  
   // sent by client
   location: { coordinates: { latitude: -23.5, longitude: -46.6 } },
   music: {
