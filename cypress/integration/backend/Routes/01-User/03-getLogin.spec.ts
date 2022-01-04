@@ -1,4 +1,4 @@
-export let existingUserToken: string;
+export let existingUserToken: string = 'prueba';
 
 describe('Get stuff from users', () => {
   it('An existing user should be able to login', () => {
