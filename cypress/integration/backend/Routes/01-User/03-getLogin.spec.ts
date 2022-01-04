@@ -10,7 +10,7 @@ describe('Get stuff from users', () => {
     };
 
     return cy.request('/login', request).then(res => {
-      expect(res.status).to.eq(200);
+      expect(res.status).to.eq(400);
       expect(res.headers['set-cookie']).to.exist;
 
       const existingUserCookie = res.headers['set-cookie'][0] as string;
