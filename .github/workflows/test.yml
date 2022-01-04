@@ -41,3 +41,14 @@ jobs:
 
     - run: npm install
     - run: npm run cy/backend
+    
+    - name: Send Slack Notification on Failure
+      if: ${{ failure() }}
+      uses: rtCamp/action-slack-notify@v2
+      env:
+        SLACK_CHANNEL: e05
+        SLACK_COLOR: "#9e2a2b"
+        SLACK_MESSAGE: "Failed execution on production build"
+        SLACK_TITLE: Failed execution
+        SLACK_USERNAME: Deploy Bot
+        SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
