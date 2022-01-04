@@ -15,7 +15,7 @@ export const getLogin = async (req: Request, res: Response) => {
 
 
     // eslint-disable-next-line max-len
-    const token = jwt.sign({id: existingUser._id}, process.env.JWT_SECRET as string, {
+    const token = jwt.sign({id: existingUser._id}, (process.env.JWT_SECRET || 'fakepsw') as string, {
       expiresIn: '30m',
     });
     return res
