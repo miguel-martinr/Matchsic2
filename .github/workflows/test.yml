@@ -14,11 +14,16 @@ jobs:
 
     runs-on: ubuntu-latest
 
+      
+
     strategy:
       matrix:
         node-version: [16.x]
         mongodb-version: ['4.4']
         # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
+    
+    env:
+      JWT_SECRET="fakepsw"
 
     steps:
     - uses: actions/checkout@v2

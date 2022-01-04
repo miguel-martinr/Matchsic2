@@ -19,7 +19,7 @@ export const authorization = (
   }
   try {
     const {id} = jwt.verify(jwtToken,
-        (process.env.JWT_SECRET || 'fakepsw') as string) as jwt.UserIDJwtPayload;
+        process.env.JWT_SECRET as string) as jwt.UserIDJwtPayload;
     req.body.id = id;
     return next();
   } catch {
