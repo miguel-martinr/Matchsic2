@@ -23,7 +23,7 @@ jobs:
         # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
     
     env:
-      JWT_SECRET="fakepsw"
+      JWT_SECRET: "fakepsw"
 
     steps:
     - uses: actions/checkout@v2
