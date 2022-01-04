@@ -43,7 +43,7 @@ jobs:
     - run: npm run cy/backend
     
     - name: Send Slack Notification on Failure
-      if: ${{ failure() }}
+      if: ${{ !failure() }}
       uses: rtCamp/action-slack-notify@v2
       env:
         SLACK_CHANNEL: e05
