@@ -18,6 +18,7 @@ export const postActiveData = async (req: Request, res: Response) => {
     }
 
     activeData.userId = req.body.id;
+
     await activeDataService.set(activeData);
     return res.status(200).json({message: 'Active data has been set'});
   } catch (err) {
