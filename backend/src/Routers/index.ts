@@ -9,7 +9,7 @@ export const router = Router();
 
 router.post('/user', postUser);
 router.get('/login', getLogin);
-router.get('/near-users', getNearUsers);
-router.post('/user/active-data', postActiveData);
-router.patch('/user/active-data', patchActiveData);
+router.get('/near-users', authorization, getNearUsers);
+router.post('/user/active-data', authorization, postActiveData);
+router.patch('/user/active-data', authorization, patchActiveData);
 router.get('/user/data', authorization, getUserData);

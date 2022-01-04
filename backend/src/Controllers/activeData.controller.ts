@@ -17,6 +17,7 @@ export const postActiveData = async (req: Request, res: Response) => {
       throw new Error(error.message);
     }
 
+    activeData.userId = req.body.id;
     await activeDataService.set(activeData);
     return res.status(200).json({message: 'Active data has been set'});
   } catch (err) {
@@ -41,6 +42,7 @@ export const patchActiveData = async (req: Request, res: Response) => {
       throw new Error(error.message);
     }
 
+    activeDataUpdate.userId = req.body.id;
     const updateResult = await activeDataService.update(activeDataUpdate);
 
     if (!updateResult) {

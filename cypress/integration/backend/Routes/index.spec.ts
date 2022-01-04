@@ -1,7 +1,5 @@
-import {authorization} from '../../../../backend/src/Controllers'
+import {authorization} from '../../../../backend/src/Middleware';
 import {Request, Response, NextFunction} from 'express';
-import dotenv from 'dotenv';
-dotenv.config({path: '../.env'});
 
 /** 
  * Remember to change the mode to 'development' in the config.ts file
@@ -29,7 +27,7 @@ describe('API /user', () => {
     };
     mockRequest = {
       cookies: {
-          access_token: ""
+          'access-token': ""
       }
   }
       authorization(mockRequest as Request, mockResponse as Response, nextFunction);
@@ -43,7 +41,7 @@ describe('API /user', () => {
     };
     mockRequest = {
       cookies: {
-          access_token: "1234"
+          'access-token': "1234"
       }
     }
       authorization(mockRequest as Request, mockResponse as Response, nextFunction);
