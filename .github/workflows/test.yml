@@ -48,6 +48,7 @@ jobs:
       env:
         SLACK_CHANNEL: e05
         SLACK_COLOR: "#9e2a2b"
+        SLACK_ICON: https://cdn-icons-png.flaticon.com/512/25/25231.png
         SLACK_MESSAGE: "Failed tests"
         SLACK_TITLE: Failed execution
         SLACK_USERNAME: Test Bot
@@ -58,6 +59,7 @@ jobs:
       env:
         SLACK_CHANNEL: e05
         SLACK_COLOR: "#7CFC00"
+        SLACK_ICON: https://cdn-icons-png.flaticon.com/512/25/25231.png
         SLACK_MESSAGE: "Successful tests"
         SLACK_TITLE: Successful tests
         SLACK_USERNAME: Test Bot
