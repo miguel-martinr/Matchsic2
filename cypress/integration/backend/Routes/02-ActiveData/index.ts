@@ -1,8 +1,7 @@
 import { ActiveUserInterface } from "../../../../../backend/src/Data/Models/activeUsers";
 
-export const activeData: ActiveUserInterface = {
+export const activeData: Partial<ActiveUserInterface> = {
   // set by server
-  userId: '61bd4e30c59b1240d579b0b3', // RodrygoG
   username: 'RodrygoG',
   profileLink: 'someProfileLink',
 
