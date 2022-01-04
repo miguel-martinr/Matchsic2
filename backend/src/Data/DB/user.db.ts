@@ -77,11 +77,25 @@ const updateActiveData = async (user: Partial<ActiveUserInterface>) => {
   }
 };
 
+const getData = async (userId: string) => {
+  try {
+    const user = await UserModel.findById(userId).select('-__v');
+    if (!user) {
+      throw new Error('User not found');
+    }
+    return user;
+  } catch (err: any) {
+    const errorMessage = err.message || 'unknown';
+    throw new Error(`DB getData error: ${errorMessage}`);
+  }
+};
+
 export const user = {
   addUser,
   verify,
   getNearUsers,
   setActiveData,
   updateActiveData,
+  getData,
 };
 
