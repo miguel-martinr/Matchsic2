@@ -8,9 +8,6 @@ on:
   pull_request:
     branches: [ main ]
 
-  # Allows you to run this workflow manually from the Actions tab
-  workflow_dispatch:
-
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
   # This workflow contains a single job called "build"
@@ -20,11 +17,9 @@ jobs:
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
-      - name: Post
-        id: sytw
-        uses: slackapi/slack-github-action@v1.16.0
-        with:
-          channel-id: '#05'  
-          slack-message: 'posting from a github action!'
+      - name: Notification
         env:
-          SLACK_BOT_TOKEN: ${{ secrets.SLACK_BOT_TOKEN }}
+          SLACK_BOT_TOKEN: ${{ secrets.SLACK_BOT_TOKEN }}        
+        uses: pullreminders/slack-action@master
+        with: 
+          args: '{\"channel\":\"e05\",\"text\":\"Hello world\"}'
