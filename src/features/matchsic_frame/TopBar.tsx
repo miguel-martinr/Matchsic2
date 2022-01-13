@@ -36,7 +36,7 @@ export const TopBar = () => {
   }
 
   return (
-    <Navbar expand="lg" style={barStyle}>
+    <Navbar className='fixed-top'  style={barStyle}>
       <Container>
         <a onClick={handleShow}>
           <img src="https://upload.wikimedia.org/wikipedia/commons/5/59/Hamburger_icon_white.svg"></img>
@@ -49,7 +49,7 @@ export const TopBar = () => {
             Options of menu
           </Offcanvas.Body>
         </Offcanvas>
-        <Navbar.Brand style={exitStyle} onClick={logoutHandler}>Salir</Navbar.Brand>
+        <Navbar.Brand style={exitStyle} onClick={logoutHandler}>sdfjsdlf</Navbar.Brand>
       </Container>
     </Navbar>
   )
