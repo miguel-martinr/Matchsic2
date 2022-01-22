@@ -25,7 +25,7 @@ function App() {
 
   const loginPage = <LoginPage />;
   const registerPage = <RegisterPage></RegisterPage>;
-  // const tempMap = <div style={{height: '100vh'}}>Home Map</div>;
+
   return (
     <Routes>
       {
