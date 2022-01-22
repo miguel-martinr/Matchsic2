@@ -5,11 +5,13 @@ import { Route, Routes } from 'react-router-dom';
 
 
 // Login page
-import { LoginPage, ProfilePage, RegisterPage, MatchsicFrame } from './features/utils';
+import { LoginPage, ProfilePage, RegisterPage } from './features/utils';
+
 import { NotificationPage } from './features/notifications/NotificationPage';
 import { useAppSelector } from './features/store/hooks';
 import { HomePage } from './features/home/HomePage';
 import { NotLogged } from './features/utils/NotLogged';
+import { MatchsicFrame } from './features/matchsic_frame';
 
 
 
@@ -23,7 +25,7 @@ function App() {
 
   const loginPage = <LoginPage />;
   const registerPage = <RegisterPage></RegisterPage>;
-  // const tempMap = <div style={{height: '100vh'}}>Home Map</div>;
+
   return (
     <Routes>
       {
