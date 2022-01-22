@@ -8,7 +8,7 @@ export const MatchsicFrame = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    userService.getData().then(data => {});
+    userService.getData().then(data => { });
     navigate('/home');
   }, []);
 
@@ -18,8 +18,9 @@ export const MatchsicFrame = () => {
       <TopBar></TopBar>
 
 
-
-      <Outlet />
+      <div className='pt-5'>
+        <Outlet />
+      </div>
 
 
       {/*NavBar*/}
