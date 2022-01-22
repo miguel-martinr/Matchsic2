@@ -1,5 +1,5 @@
 import React, { useState } from "react"
-import { Container, Navbar, Offcanvas } from "react-bootstrap"
+import { Button, Container, Navbar, Offcanvas } from "react-bootstrap"
 import { useNavigate } from "react-router-dom"
 import { useAppDispatch } from "../store/hooks"
 import { loggedOut } from "../store/storeSlice"
@@ -12,7 +12,9 @@ const barStyle = {
 
 
 const exitStyle = {
-  color: '#FFFFFF'
+  color: '#FFFFFF',
+  backgroundColor: 'transparent',
+  border: 'none',
 }
 
 
@@ -49,7 +51,7 @@ export const TopBar = () => {
             Options of menu
           </Offcanvas.Body>
         </Offcanvas>
-        <Navbar.Brand style={exitStyle} onClick={logoutHandler}>sdfjsdlf</Navbar.Brand>
+        <Button style={exitStyle} onClick={logoutHandler}>Salir</Button>
       </Container>
     </Navbar>
   )
