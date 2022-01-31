@@ -81,10 +81,11 @@ const updateActiveData = async (user: Partial<ActiveUserInterface>) => {
 const getUserInfo = async (userId: string) => {
   try {
     // Updates user active data
-    const user = await UserModel.findById(userId).select('-_id -__v -userId');
+    // eslint-disable-next-line max-len
+    const user = await UserModel.findById(userId).select('-_id -__v -userId -password');
     if (user) {
       // eslint-disable-next-line max-len
-      return user;
+      return {'user': user};
     }
   } catch (err: any) {
     const errorMessage = err.message || 'unknown';

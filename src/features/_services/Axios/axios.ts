@@ -4,7 +4,7 @@ import { loggedOut } from "../../store/storeSlice";
 
 export const matchsicAxios = axios.create({
   baseURL: 'http://localhost:3000',
-  // withCredentials: true,
+  withCredentials: true,
 });
 
 matchsicAxios.interceptors.response.use(undefined, (error) => {

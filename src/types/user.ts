@@ -28,6 +28,8 @@ export interface NotificationData {
 
 export interface ProfileData {
   name: string,
+  username: string,
   description: string,
-  musicGenres: string[],
+  musicPreference: string[],
+  socialNetwork: string[],
 }

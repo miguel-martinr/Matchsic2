@@ -4,6 +4,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import { MatchsicButton } from '../utils/MatchsicButton';
 import { MatchsicGreenBox } from '../utils/MatchsicGreenBox';
 import { useFormFields } from '../../utilities/form-hooks';
+import { matchsicAxios } from "../_services/Axios/axios";
 
 import classes from './LoginPage.module.css';
 import { userService } from '../_services';
@@ -60,10 +61,12 @@ export const LoginPage = (props: LoginPageProps) => {
 
     // Send login request to server
     userService.login(username, password)
-      .then(user => {
-        // if login successful, set user token in local storage
-        dispatch(loggedIn(user));
-        navigate('/home');
+      .then(() => {
+        userService.getData().then((res) => {
+          dispatch(loggedIn(res.data.user));
+          navigate('/home');
+        }).catch(() => {
+        });
       })
       .catch(err => {
         // if login unsuccessful, show error message

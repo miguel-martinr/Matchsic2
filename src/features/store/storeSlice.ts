@@ -11,8 +11,9 @@ interface MatchsicState {
 }
 
 
+
 const initialState: MatchsicState = {
-  userProfile: { name: '', description: '', musicGenres: [] },
+  userProfile: { name: '', username: '' , description: '', musicPreference: [] , socialNetwork: []},
   userSession: {
     username: 'Lena_00', profileLink: '',
     profilePicture: { url: '', width: 0, height: 0 },
@@ -34,10 +35,14 @@ const matchsicSlice = createSlice({
       return state;
     },
 
-    loggedIn(state, action: PayloadAction<{ username: string, name: string }>) {
-      const { username, name } = action.payload;
+    loggedIn(state, action: PayloadAction<ProfileData>) {
+      const { username, name, description, socialNetwork, musicPreference } = action.payload;
       state.userSession.username = username;
       state.userProfile.name = name;
+      state.userProfile.username = username;
+      state.userProfile.description = description;
+      state.userProfile.musicPreference = musicPreference;
+      state.userProfile.socialNetwork = socialNetwork;
       state.userIsLoggedIn = true;
     },
 

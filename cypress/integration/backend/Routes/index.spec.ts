@@ -1,6 +1,6 @@
 import { config } from '../../../../backend/src/config';
 import { ActiveUserInterface } from '../../../../backend/src/Data/Models/activeUsers';
-import {authorization} from '../../../../backend/src/Controllers'
+import {authorization} from '../../../../backend/src/Middleware'
 import {Request, Response, NextFunction} from 'express';
 import dotenv from 'dotenv';
 dotenv.config({path: '../.env'});

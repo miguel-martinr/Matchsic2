@@ -16,10 +16,10 @@ const TextBold = {
 interface MatchsicUserProps extends React.HtmlHTMLAttributes<HTMLElement> {
   user: {
     name: string,
-    nickname: string,
+    username: string,
     description: string,
-    music: string[],
-    social: string[],
+    musicPreference: string[],
+    socialNetwork: string[],
   }
 }
 
@@ -33,7 +33,7 @@ export const MatchsicUserInfo = (props: MatchsicUserProps) => {
   return (
     <>
       <Row style={TextBold}>{user.name}</Row>
-      <Row style={TextMuted}>{user.nickname}</Row>
+      <Row style={TextMuted}>{user.username}</Row>
       <Row>
         {user.description}
       </Row>
@@ -41,7 +41,7 @@ export const MatchsicUserInfo = (props: MatchsicUserProps) => {
         Gustos musicales
       </Row>
       <Row>
-        {user.music.map( (music, index)  => {
+        {user.musicPreference.map( (music, index)  => {
            return <MatchsicMusicalRound music={music} key={index}/>
          })}
       </Row>
@@ -50,7 +50,7 @@ export const MatchsicUserInfo = (props: MatchsicUserProps) => {
           Redes sociales
       </Row>
       <Row>
-        {user.social.map((social, index) => {
+        {user.socialNetwork.map((social, index) => {
             return <Col key={index}> {social}</Col>
         })}
       </Row>
