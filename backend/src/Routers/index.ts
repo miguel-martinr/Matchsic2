@@ -8,7 +8,7 @@ export const router = Router();
 
 
 router.post('/user', postUser);
-router.get('/login', getLogin);
+router.post('/login', getLogin);
 router.get('/near-users', authorization, getNearUsers);
 router.post('/user/active-data', authorization, postActiveData);
 router.patch('/user/active-data', authorization, patchActiveData);

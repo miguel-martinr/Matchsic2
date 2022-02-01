@@ -4,6 +4,7 @@ import classes from './ProfileCard.module.css';
 import { MatchsicButton } from '../utils/MatchsicButton';
 import {MatchsicProfileImage} from '../utils/MatchsicProfileImage';
 import {MatchsicUserInfo} from '../utils/MatchsicCardUserInfo';
+import { useAppSelector } from '../store/hooks';
 
 
 interface userProfile {
@@ -14,15 +15,18 @@ interface userProfile {
     social :string[],
 }
 
+
+
 export const ProfilePage = () => {
 
-    const user :userProfile = {
-        name: "Pedro Guillermo",
-        nickname: "Mordor1110",
-        description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt a unde eum. Quaerat dolor unde saepe laudantium incidunt alias, architecto quidem fuga optio, blanditiis, tempora voluptates qui debitis veritatis hic.",
-        music: ["Rock", "Metal"],
-        social: ["Twitter", "Facebook", "Instagram"],
-    }
+    const { userProfile } = useAppSelector(state => state.matchsic);
+    // const user :userProfile = {
+    //     name: "Pedro Guillermo",
+    //     nickname: "Mordor1110",
+    //     description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt a unde eum. Quaerat dolor unde saepe laudantium incidunt alias, architecto quidem fuga optio, blanditiis, tempora voluptates qui debitis veritatis hic.",
+    //     music: ["Rock", "Metal"],
+    //     social: ["Twitter", "Facebook", "Instagram"],
+    // }
 
     
 
@@ -45,7 +49,7 @@ export const ProfilePage = () => {
                 <Col></Col>
                 <Col xs={10}>
 
-                    <MatchsicUserInfo user={user}/>
+                    <MatchsicUserInfo user={userProfile}/>
                  
                     <Row  className='pt-5'></Row>
                     <Row  className='pt-5'></Row>

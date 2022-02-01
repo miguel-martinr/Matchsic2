@@ -1,4 +1,5 @@
 import {Request, Response} from 'express';
+import {getUserDataService} from '../Services';
 
 import dotenv from 'dotenv';
 
@@ -7,8 +8,8 @@ dotenv.config({path: '../.env'});
 export const getUserData = async (req: Request, res: Response) => {
   try {
     const {id} = req.body;
-    // const existingUser = await verifyUserService(user);
-    return res.status(200).json({message: 'Your id is ' + id});
+    const infoUser = await getUserDataService(id);
+    return res.status(202).json(infoUser);
   } catch (error: any) {
     return res.status(400).json({message: error.message});
   }

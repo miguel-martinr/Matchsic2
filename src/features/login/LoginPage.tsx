@@ -60,10 +60,14 @@ export const LoginPage = (props: LoginPageProps) => {
 
     // Send login request to server
     userService.login(username, password)
-      .then(user => {
-        // if login successful, set user token in local storage
-        dispatch(loggedIn(user));
-        navigate('/home');
+      .then(() => {
+        userService.getData().then((res) => {
+          console.log(res.data)
+          dispatch(loggedIn(res.data));
+          navigate('/home');
+        }).catch((res) => {
+          console.log(res)
+        });
       })
       .catch(err => {
         // if login unsuccessful, show error message
