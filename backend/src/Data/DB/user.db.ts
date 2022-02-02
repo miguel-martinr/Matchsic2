@@ -79,7 +79,7 @@ const updateActiveData = async (user: Partial<ActiveUserInterface>) => {
 
 const getData = async (userId: string) => {
   try {
-    const user = await UserModel.findById(userId).select('-__v');
+    const user = await UserModel.findById(userId).select('-__v -_id');
     if (!user) {
       throw new Error('User not found');
     }
@@ -90,6 +90,22 @@ const getData = async (userId: string) => {
   }
 };
 
+
+const updateData = async (userId :string, user: Partial<UserInterface>) => {
+  try {
+    // Updates user active data
+    const userExists = await UserModel.findById(userId).select('-__v -_id');
+    if (userExists) {
+      // eslint-disable-next-line max-len
+      return await UserModel.findByIdAndUpdate(userId, user, {new: true}).select('-_id -__v -userId');
+    }
+  } catch (err: any) {
+    const errorMessage = err.message || 'unknown';
+    throw new Error(`DB updateActiveData error: ${errorMessage}`);
+  }
+};
+
+
 export const user = {
   addUser,
   verify,
@@ -97,5 +113,6 @@ export const user = {
   setActiveData,
   updateActiveData,
   getData,
+  updateData,
 };
 

@@ -5,6 +5,14 @@ import { matchsicAxios } from "./Axios/axios";
 //   users: [{username: 'Lena_00', password: '1234', name: 'Lena L.'}],
 // }
 
+interface userDataRegister {
+  username: string,
+  name: string,
+  password: string,
+  secondName: string,
+  birthDate: string,
+}
+
 
 const login = (username: string, password: string) => {
   
@@ -36,10 +44,27 @@ const getData = () => {
   return matchsicAxios.get('/user/data');
 }
 
-
+const register = (data :userDataRegister) => {
+  return new Promise<userDataRegister | void>((resolve, reject) => {
+    matchsicAxios.post('user',
+      {
+          "user": {
+            ...data,
+            "description": "Aquí puedes poner tu descripción",
+            "musicPreference": [ "Rock", "Pop" ],
+            "socialNetwork": ["Twitter", "Telegram"]
+          }
+      }).then(() => {
+          resolve();
+      }).catch(() => {
+        reject('Problema al registrar');
+      });
+});
+}
 
 export const userService = {
   login,
   logout,
   getData,
+  register,
 }
