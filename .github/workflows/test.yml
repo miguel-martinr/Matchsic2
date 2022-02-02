@@ -65,3 +65,8 @@ jobs:
         SLACK_USERNAME: Test Bot
         SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
       
+    - name: Coveralls
+      uses: coverallsapp/github-action@master
+      with:
+        github-token: ${{ secrets.COVERALLS_TOKEN }}
+      
