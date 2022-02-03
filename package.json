@@ -12,7 +12,7 @@
     "fe-services/test": "cypress run --spec \"cypress/integration/src/features/services/**/*.spec.ts\"",
     "cy/backend": "start-server-and-test backend/compile-and-start http://localhost:3000 backend/test",
     "cy/fe-services": "start-server-and-test backend/start http://localhost:3000 fe-services/test",
-    "cypress:open": "cypress open"
+    "cypress:open": "cypress open",
     "coverall": "jest --coverage && cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js && rm -rf ./coverage"
   },
   "engines": {
