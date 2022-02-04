@@ -5,3 +5,4 @@ export {activeDataService} from './activedata.service';
 export {getUserDataService} from './getUserData.service';
 export {getProfileLinkService} from './getProfileLink.service';
 export {patchUserDataService} from './patchUserData.service';
+export {spotifyService} from './spotify.service';
