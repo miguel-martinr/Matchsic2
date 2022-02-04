@@ -13,6 +13,14 @@ interface userDataRegister {
   birthDate: string,
 }
 
+interface userDataUpdate {
+  username: string,
+  name: string,
+  description: string,
+  musicPreference: string[],
+}
+
+
 
 const login = (username: string, password: string) => {
   
@@ -59,7 +67,22 @@ const register = (data :userDataRegister) => {
       }).catch(() => {
         reject('Problema al registrar');
       });
-});
+  });
+}
+
+const update = (data :userDataUpdate) => {
+  return new Promise<userDataUpdate | void>((resolve, reject) => {
+    matchsicAxios.patch('/user/data',
+      {
+          "user": {
+            ...data,
+          }
+      }).then(() => {
+          resolve();
+      }).catch(() => {
+        reject('Problema al actualizar');
+      });
+  });
 }
 
 export const userService = {
@@ -67,4 +90,5 @@ export const userService = {
   logout,
   getData,
   register,
+  update,
 }

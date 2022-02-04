@@ -5,7 +5,7 @@ import { Route, Routes } from 'react-router-dom';
 
 
 // Login page
-import { LoginPage, ProfilePage, RegisterPage } from './features/utils';
+import { EditProfilePage, LoginPage, ProfilePage, RegisterPage } from './features/utils';
 
 import { NotificationPage } from './features/notifications/NotificationPage';
 import { useAppSelector } from './features/store/hooks';
@@ -45,6 +45,7 @@ function App() {
                 <Route path='/home' element={<HomePage />} />
                 <Route path='/profile' element={<ProfilePage />} />
                 <Route path='/notifications' element={<NotificationPage />} />
+                <Route path='/editprofile' element={<EditProfilePage />} />
               </Route>
             </Fragment>
           )

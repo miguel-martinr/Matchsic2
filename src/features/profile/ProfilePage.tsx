@@ -1,7 +1,7 @@
 import React from 'react';
 import { Container, Row, Col } from 'react-bootstrap';
 import classes from './ProfileCard.module.css';
-import { MatchsicButton } from '../utils/MatchsicButton';
+import { MatchsicButtonLinkto } from '../utils/MatchsicButtonLinkto';
 import {MatchsicProfileImage} from '../utils/MatchsicProfileImage';
 import {MatchsicUserInfo} from '../utils/MatchsicCardUserInfo';
 import { useAppSelector } from '../store/hooks';
@@ -20,15 +20,6 @@ interface userProfile {
 export const ProfilePage = () => {
 
     const { userProfile } = useAppSelector(state => state.matchsic);
-    // const user :userProfile = {
-    //     name: "Pedro Guillermo",
-    //     nickname: "Mordor1110",
-    //     description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt a unde eum. Quaerat dolor unde saepe laudantium incidunt alias, architecto quidem fuga optio, blanditiis, tempora voluptates qui debitis veritatis hic.",
-    //     music: ["Rock", "Metal"],
-    //     social: ["Twitter", "Facebook", "Instagram"],
-    // }
-
-    
 
     return(
     <Container className={classes.mainFrame} fluid>
@@ -39,7 +30,7 @@ export const ProfilePage = () => {
                     <MatchsicProfileImage alt="User Image" src={'https://thispersondoesnotexist.com/image'}/>
                 </Col>
                 <Col className={"ps-4"}>
-                    <MatchsicButton text={"Editar Perfil"} className={classes.ButtonEditProfile}></MatchsicButton>
+                    <MatchsicButtonLinkto linkto="/editprofile" text={"Editar Perfil"} className={classes.ButtonEditProfile}></MatchsicButtonLinkto>
                 </Col>
             </Row>
         </Row>    

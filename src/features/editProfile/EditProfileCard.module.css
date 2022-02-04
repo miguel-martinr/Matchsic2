@@ -27,8 +27,8 @@
     font-weight: bold;
 }
 
-.ButtonEditProfile:hover{
-    color: black;
+.ButtonEditProfile:hover {
+    color: red;
 }
 
 .MusicalRound{

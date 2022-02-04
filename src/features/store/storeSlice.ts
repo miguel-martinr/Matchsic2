@@ -49,10 +49,19 @@ const matchsicSlice = createSlice({
       state.userSession.username = '';
       state.userProfile.name = '';
       state.userIsLoggedIn = false;
-    }
+    },
+
+    updateUser(state, action: PayloadAction<ProfileData>) {
+      const { username, name, description, musicPreference } = action.payload;
+      state.userSession.username = username;
+      state.userProfile.name = name;
+      state.userProfile.username = username;
+      state.userProfile.description = description;
+      state.userProfile.musicPreference = musicPreference;
+    },
   }
 });
 
 
-export const { sayHi, loggedIn, loggedOut } = matchsicSlice.actions;
+export const { sayHi, loggedIn, loggedOut, updateUser } = matchsicSlice.actions;
 export default matchsicSlice.reducer;
