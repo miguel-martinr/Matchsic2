@@ -13,13 +13,15 @@ describe ('Posting a new user', () => {
         password: '123456',
       }
     };
-
+    cy.deleteMany({}, 'users');
     return cy.request('POST', '/user', request).then(async res => {
       expect(res.status).to.eq(201);
       expect(res.body.message).to.eq('Welcome to Matchsic, ViniJr!');
-      const User = mongoose.model('users');
-      const user = await User.findOne({username: 'ViniJr'});
-      expect(user).to.not.be.null;
+      cy.findOne({ username: 'ViniJr' }, 'users').then((user: any) => {
+        expect(user).to.not.be.null;
+        expect(user.name).to.eq(request.user.name);
+        expect(user.username).to.eq(request.user.username);
+      });
     });
   });
 });

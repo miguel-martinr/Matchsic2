@@ -14,6 +14,8 @@ describe('Geat near users', () => {
       .then(res => {
         expect(res.status).to.eq(200);
         expect(res.body.nearUsers).to.be.an('array');
+        cy.deleteMany({}, 'users');
+        cy.deleteMany({}, 'active-data');
       });
   });  
 });

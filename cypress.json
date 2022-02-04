@@ -3,5 +3,9 @@
     "screenshotOnRunFailure": false,
     "baseUrl": "http://localhost:3000",
     "viewportWidth": 414,
-    "viewportHeight": 736
+    "viewportHeight": 736,
+    "env": {
+      "MONGODB_URI": "mongodb://localhost:27017",
+      "MONGODB_DATABASE": "matchsic"
+    }
 }
