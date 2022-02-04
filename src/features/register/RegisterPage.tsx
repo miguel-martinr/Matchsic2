@@ -1,7 +1,10 @@
-import React from 'react'
-import { Row, Col, Form } from 'react-bootstrap'
+import React, { useState } from 'react';
+import { Row, Col, InputGroup ,Form } from 'react-bootstrap'
+import { Link, useNavigate } from 'react-router-dom';
 import { MatchsicButton } from '../utils/MatchsicButton'
 import { MatchsicGreenBox } from '../utils/MatchsicGreenBox'
+import { userService } from '../_services';
+import { useFormFields } from '../../utilities/form-hooks';
 
 
 const registerButtonStyle = {
@@ -14,18 +17,35 @@ const registerButtonStyle = {
 }
 
 export const RegisterPage = () => {
+
+  const navigate = useNavigate();
+  
+  const [fields, setFields] = useFormFields({
+    username: '',
+    password: '',
+    name: '',
+    secondName: '',
+    email: '',
+    birthDate: '',
+  });
+
+
+ 
+
+  const handleFieldChange = (ev: React.ChangeEvent<HTMLInputElement>) => {
+    setFields(ev);
+  }
+
   const handleSubmit = (ev: React.FormEvent<HTMLFormElement>) => {
     ev.preventDefault();
 
-    // Validate inputs
+    console.log(fields);
+    userService.register(fields).then(() => {
+      navigate("/login")
+    }).catch((err) => {
+      console.log(err)
+    })
 
-    // Send register request
-    console.log('Register form submitted');
-
-    // If success, redirect to login page
-
-
-    // If error, show error message
   }
 
 
@@ -37,27 +57,70 @@ export const RegisterPage = () => {
         <Col className="text-center">
           <Form onSubmit={handleSubmit}>
             <Form.Group className="mb-5" controlId="name">
-              <Form.Control type="text" placeholder="Nombre" />
+              <InputGroup hasValidation id="nameInputGroup">
+                <Form.Control
+                  type="text"
+                  placeholder="Nombre"
+                  onChange={handleFieldChange}
+                />
+              </InputGroup>
             </Form.Group>
             <Form.Group className="mb-5" controlId="secondName">
-              <Form.Control type="text" placeholder="Apellidos" />
+              <InputGroup hasValidation id="secondNameInputGroup">
+                <Form.Control
+                  type="text"
+                  placeholder="Apellidos"
+                  onChange={handleFieldChange}
+                />
+              </InputGroup>
             </Form.Group>
             <Form.Group className="mb-5" controlId="birthDate">
-              <Form.Control type="date" max="2005-17-02"/>
+              <InputGroup hasValidation id="secondNameInputGroup">
+                <Form.Control
+                  type="date"
+                  placeholder="Fecha de Nacimiento"
+                  onChange={handleFieldChange}
+                />
+              </InputGroup>
             </Form.Group>
             <Form.Group className="mb-5" controlId="username">
-              <Form.Control type="text" placeholder="Nombre de usuario" />
+              <InputGroup hasValidation id="usernameInputGroup">
+                <Form.Control
+                  type="text"
+                  placeholder="Nombre de usuario"
+                  onChange={handleFieldChange}
+                />
+              </InputGroup>
             </Form.Group>
             <Form.Group className="mb-5" controlId="email">
-              <Form.Control type="email" placeholder="Correo electrónico" />
+              <InputGroup hasValidation id="emailInputGroup">
+                <Form.Control
+                  type="email"
+                  placeholder="Correo electrónico"
+                  onChange={handleFieldChange}
+                />
+              </InputGroup>
             </Form.Group>
             <Form.Group className="mb-5" controlId="password">
-              <Form.Control type="password" placeholder="Contraseña" />
+              <InputGroup hasValidation id="passwordInputGroup">
+                <Form.Control
+                  type="password"
+                  placeholder="Contraseña"
+                  onChange={handleFieldChange}
+                />
+              </InputGroup>
             </Form.Group>
-            <Form.Group className="mb-5" controlId="passwordConfirm">
-              <Form.Control type="password" placeholder="Repite la contraseña" />
+            <Form.Group className="mb-5" controlId="checkPassword">
+              <InputGroup hasValidation id="CheckpasswordInputGroup">
+                <Form.Control
+                  type="password"
+                  placeholder="Confirmar contraseña"
+                  onChange={handleFieldChange}
+                />
+              </InputGroup>
             </Form.Group>
-            <MatchsicButton text="Registrarme" style={registerButtonStyle}></MatchsicButton>
+            <MatchsicButton text="Registrarme" style={registerButtonStyle} type="submit"></MatchsicButton>
+            
           </Form>
         </Col>
       </Row>

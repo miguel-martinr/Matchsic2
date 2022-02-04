@@ -15,20 +15,21 @@ const matchsicButtonStyle = {
 
 interface MatchsicButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   text: string,
+  linkto: string,
 }
 
 
-export const MatchsicButton = (props: MatchsicButtonProps) => {
+export const MatchsicButtonLinkto = (props: MatchsicButtonProps) => {
   
-  const {text} = props;
+  const {text,linkto} = props;
   const style = props.style || {};
 
   const className = (props.className || "") + " rounded-pill pe-2 ps-2 p-1" ;
   return (
-    
+    <Link to={linkto}>
       <Button {...props} style={{...matchsicButtonStyle, ...style}} className={className}>
         {text}
       </Button>
-    
+    </Link>
   )
 }
