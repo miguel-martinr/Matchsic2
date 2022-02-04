@@ -8,4 +8,9 @@ export const UserSchema = new mongoose.Schema({
   description: {type: String},
   musicPreference: [{type: String}],
   socialNetwork: [{type: String}],
+  spotifyCredentials: {
+    accessToken: {type: String, default: ''},
+    refreshToken: {type: String, default: ''},
+    expirationTime: {type: Number, default: 0}, // Expired by default
+  },
 });
