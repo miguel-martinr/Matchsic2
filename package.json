@@ -16,7 +16,7 @@
     "coverall": "jest --coverage && cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js && rm -rf ./coverage"
   },
   "engines": {
-    "node": ">=16.13.0"
+    "node": ">=16.13.0 <17"
   },
   "dependencies": {
     "@reduxjs/toolkit": "^1.6.2",
