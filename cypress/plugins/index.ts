@@ -17,11 +17,23 @@
  */
 // eslint-disable-next-line no-unused-vars
 import * as mongo from 'cypress-mongodb';
+// cypress/support/index.js
+import '@cypress/code-coverage/support'
 
 /**
  * @type {Cypress.PluginConfig}
  */
 export default (on: Cypress.PluginEvents, config: Cypress.PluginConfigOptions) => {
     mongo.configurePlugin(on);
+}
+
+// cypress/plugins/index.js
+module.exports = (on, config) => {
+    require('@cypress/code-coverage/task')(on, config)
+    // include any other plugin code...
+
+    // It's IMPORTANT to return the config object
+    // with any changed environment variables
+    return config
 }
 
