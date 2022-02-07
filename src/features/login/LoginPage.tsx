@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Col, Form, InputGroup, Row } from 'react-bootstrap';
 import { Link, useNavigate } from 'react-router-dom';
 import { MatchsicButton } from '../utils/MatchsicButton';
@@ -36,6 +36,15 @@ export const LoginPage = (props: LoginPageProps) => {
     username: '',
     password: '',
   });
+
+  useEffect(() => {
+    userService.amILoggedIn().then((userData) => {
+      dispatch(loggedIn());
+      dispatch(userDataFetched(userData));
+    }).catch(() => {
+
+    });
+  }, []);
 
   const handleFieldChange = (ev: React.ChangeEvent<HTMLInputElement>) => {
     setInvalidFeedBack({...invalidFeedback, fromServer: false});

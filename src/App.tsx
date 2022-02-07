@@ -23,19 +23,6 @@ function App() {
   // Go to login if user is not logged in
   
   const {userIsLoggedIn} = useAppSelector(state => state.matchsic);
-  const dispatch = useAppDispatch();
-  const navigate = useNavigate();
-  useEffect(() => {
-    userService.amILoggedIn().then((userData) => {
-      dispatch(loggedIn());
-      dispatch(userDataFetched(userData));
-      navigate('/');
-    }).catch(() => {
-
-    });
-
-  }, []);
-  
 
   return (
     <Routes>
