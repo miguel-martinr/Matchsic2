@@ -8,7 +8,7 @@ import { useFormFields } from '../../utilities/form-hooks';
 import classes from './LoginPage.module.css';
 import { userService } from '../_services';
 import { useAppDispatch, useAppSelector } from '../store/hooks';
-import { loggedIn } from '../store/storeSlice';
+import { loggedIn, userDataFetched } from '../store/storeSlice';
 
 const loginButtonStyle = {
   color: '#0BA55D',
@@ -63,7 +63,8 @@ export const LoginPage = (props: LoginPageProps) => {
       .then(() => {
         userService.getData().then((res) => {
           console.log(res.data)
-          dispatch(loggedIn(res.data));
+          dispatch(loggedIn());
+          dispatch(userDataFetched(res.data));
           navigate('/home');
         }).catch((res) => {
           console.log(res)
