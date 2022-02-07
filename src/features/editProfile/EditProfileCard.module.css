@@ -65,6 +65,16 @@
 .TextBold {
     font-size: 18px;
     font-weight: 700;
+}
 
+.AcceptBtn {
+  size: 10px;
+  float: right;
+  color: #0BA55D;
+  border-radius: 100px;
+  border: none;
+  width: 10em;
+  height: 2em;
+  font-weight: bold;
 }
 
