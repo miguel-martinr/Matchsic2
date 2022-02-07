@@ -17,6 +17,7 @@ const allowedOrigins = [
   'http://localhost:3001',
 ];
 
+
 app.use(cors({credentials: true, origin: allowedOrigins}));
 app.use(express.urlencoded({extended: true}));
 app.use(cookieParser());
@@ -24,6 +25,12 @@ app.use(cookieParser());
 app.use(express.static('public'));
 
 app.use(router);
+
+// Default
+app.use((req, res, next) => {
+  return res.redirect('/');
+});
+
 
 const port = process.env.PORT || 3000;
 
