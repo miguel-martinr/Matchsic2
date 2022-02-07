@@ -5,13 +5,6 @@ import { BottomBar } from './BottomBar';
 import { TopBar } from './TopBar';
 
 export const MatchsicFrame = () => {
-  const navigate = useNavigate();
-
-  useEffect(() => {
-    userService.getData().then(data => { });
-    navigate('/home');
-  }, []);
-
   return (
     <Fragment>
       {/*TopBar*/}

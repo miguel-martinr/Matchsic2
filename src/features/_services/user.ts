@@ -42,7 +42,9 @@ const login = (username: string, password: string) => {
 
 const logout = () => {
   return new Promise<void>((resolve, reject) => {
+    // Clear cookie
     setTimeout(() => {
+      console.log('Sesión cerrada');
       resolve();
     }, 500);
   });
@@ -70,6 +72,11 @@ const register = (data :userDataRegister) => {
   });
 }
 
+const amILoggedIn = async () => {
+  const response = await  matchsicAxios.get('/am-i-logged-in');
+  return response.data.userData;
+}
+
 const update = (data :userDataUpdate) => {
   return new Promise<userDataUpdate | void>((resolve, reject) => {
     matchsicAxios.patch('/user/data',
@@ -91,4 +98,5 @@ export const userService = {
   getData,
   register,
   update,
+  amILoggedIn,
 }
