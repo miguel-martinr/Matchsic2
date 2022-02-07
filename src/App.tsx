@@ -22,9 +22,7 @@ function App() {
 
 
   const userIsLoggedIn = useAppSelector(state => state.matchsic.userIsLoggedIn);
-
-  const loginPage = <LoginPage />;
-  const registerPage = <RegisterPage></RegisterPage>;
+  
 
   return (
     <Routes>
@@ -33,8 +31,8 @@ function App() {
           (
             <Fragment>
               <Route path='/' element={<NotLogged />}>
-                <Route path='/login' element={loginPage} />
-                <Route path='/register' element={registerPage} />
+                <Route path='/login' element={<LoginPage />} />
+                <Route path='/register' element={<RegisterPage />} />
               </Route>
             </Fragment>
           )
