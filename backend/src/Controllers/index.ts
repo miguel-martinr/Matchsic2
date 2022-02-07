@@ -5,3 +5,4 @@ export {patchUserData} from './patchUserData.controller';
 export {spotifyConnect, spotifyCallback} from './spotify.controller';
 export {patchActiveData, postActiveData} from './activeData.controller';
 export {getNearUsers} from './getNearUsers.controller';
+export {amILoggedIn} from './loggedIn.controller';

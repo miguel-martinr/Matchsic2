@@ -34,7 +34,7 @@ const matchsicSlice = createSlice({
       return state;
     },
 
-    loggedIn(state, action: PayloadAction<ProfileData>) {
+    userDataFetched(state, action: PayloadAction<ProfileData>) {
       const { username, name, description, socialNetwork, musicPreference } = action.payload;
       state.userSession.username = username;
       state.userProfile.name = name;
@@ -42,6 +42,9 @@ const matchsicSlice = createSlice({
       state.userProfile.description = description;
       state.userProfile.musicPreference = musicPreference;
       state.userProfile.socialNetwork = socialNetwork;
+    },
+
+    loggedIn(state) {
       state.userIsLoggedIn = true;
     },
     
@@ -63,5 +66,6 @@ const matchsicSlice = createSlice({
 });
 
 
-export const { sayHi, loggedIn, loggedOut, updateUser } = matchsicSlice.actions;
+export const { sayHi, loggedIn, loggedOut, updateUser,
+userDataFetched} = matchsicSlice.actions;
 export default matchsicSlice.reducer;

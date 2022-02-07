@@ -13,28 +13,10 @@ import { update } from 'cypress/types/lodash';
 import { updateUser } from '../store/storeSlice';
 
 
-// interface userProfile {
-//     name :string,
-//     username :string,
-//     description :string,
-//     music :string[],
-//     social :string[],
-// }
 interface musicValue {
     value: string,
     label: string
 }
-
-const acceptButtonStyle = {
-    size: "10px",
-    float: "right",
-    color: "#0BA55D",
-    border_radius: "100px",
-    border: "none",
-    width: "10em",
-    height: "2em",
-    font_weight: "bold",
-  }
 
 export const EditProfilePage = () => {
     const { userProfile } = useAppSelector(state => state.matchsic);
@@ -82,11 +64,11 @@ export const EditProfilePage = () => {
 
     
 
-    const handleFieldChange = (ev: React.FormEvent<HTMLInputElement>) => {
+    const handleFieldChange = (ev: React.ChangeEvent<HTMLInputElement>) => {
         setFields_edit(ev)
     }
 
-    const handleFieldMusicChange = (music: [musicValue]) => {
+    const handleFieldMusicChange = (music: any) => {
         setFields_music(music)
     }
 
@@ -100,7 +82,7 @@ export const EditProfilePage = () => {
                         <MatchsicProfileImage alt="User Image" src={'https://thispersondoesnotexist.com/image'}/>
                     </Col>
                     <Col className={"ps-4"}>
-                    <MatchsicButton text="Aceptar cambios" style={acceptButtonStyle} type="submit"></MatchsicButton>
+                    <MatchsicButton text="Aceptar cambios" className={classes.AcceptBtn} type="submit"></MatchsicButton>
                     </Col>
                 </Row>
             </Row>    

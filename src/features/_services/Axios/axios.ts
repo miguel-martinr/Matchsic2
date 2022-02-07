@@ -7,13 +7,13 @@ export const matchsicAxios = axios.create({
   withCredentials: true,
 });
 
-matchsicAxios.interceptors.response.use(undefined, (error) => {
-  const {response} = error;
-  if (response && response.status == 401) {
-    console.log('401'); 
-    store.dispatch(loggedOut());
-    window.location.href = '/';
-  }
+// matchsicAxios.interceptors.response.use(undefined, (error) => {
+//   const {response} = error;
+//   if (response && response.status == 401) {
+//     console.log('401'); 
+//     store.dispatch(loggedOut());
+//     window.location.href = '/';
+//   }
 
-  return Promise.reject(error);
-});
+//   return Promise.reject(error);
+// });
