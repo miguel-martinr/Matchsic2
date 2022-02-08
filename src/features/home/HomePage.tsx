@@ -19,7 +19,7 @@ export const HomePage = () => {
   const dispatch = useAppDispatch();
 
   const [map, setMap] = useState<L.Map | null>(null);
-  const [nUsers, setNusers] = useState<UserData[]>([]);
+  
 
   useEffect(() => {
     // Set location
@@ -32,7 +32,6 @@ export const HomePage = () => {
               userService.getNearUsers()
                 .then(nearUsers => {
                   dispatch(setNearUsers(nearUsers));
-                  setNusers(nearUsers);
                 });
             });
         });
@@ -53,7 +52,7 @@ export const HomePage = () => {
             <MatchsicTile />
 
             {
-              nUsers.map(nearUser => {
+              nearUsers.map(nearUser => {
 
                 return <UserMarker
                   user={nearUser}
