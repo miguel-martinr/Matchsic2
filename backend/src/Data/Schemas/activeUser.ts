@@ -6,20 +6,20 @@ export const ActiveUserSchema = new mongoose.Schema({
   profileLink: {type: String, required: true},
   location: {
     coordinates: {
-      latitude: {type: Number, required: true},
-      longitude: {type: Number, required: true},
+      latitude: {type: Number, default: 0},
+      longitude: {type: Number, default: 0},
     },
   },
 
   music: {
-    trackName: {type: String, required: true},
-    authorsNames: {type: [String], required: true},
+    trackName: {type: String},
+    authorsNames: {type: [String]},
     coverImage: {
-      url: {type: String, required: true},
-      height: {type: Number, required: true},
-      width: {type: Number, required: true},
+      url: {type: String},
+      height: {type: Number},
+      width: {type: Number},
     },
-    status: {type: String, required: true},
+    status: {type: String},
   },
 
   // credentials: {
