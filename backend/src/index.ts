@@ -18,7 +18,7 @@ const allowedOrigins = [
 ];
 
 
-app.use(cors({credentials: true, origin: allowedOrigins}));
+// app.use(cors({credentials: true, origin: allowedOrigins}));
 app.use(express.urlencoded({extended: true}));
 app.use(cookieParser());
 
