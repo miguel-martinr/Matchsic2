@@ -25,7 +25,7 @@ app.use(express.static(path.join(__dirname, '../public')));
 
 app.use(router);
 
-Default
+// Default
 app.all('*', (req, res) => {
   return res.redirect('/');
 });
