@@ -17,15 +17,14 @@
  */
 // eslint-disable-next-line no-unused-vars
 import * as mongo from 'cypress-mongodb';
-// cypress/support/index.js
-import '@cypress/code-coverage/support'
+
+
 
 /**
  * @type {Cypress.PluginConfig}
  */
 export default (on: Cypress.PluginEvents, config: Cypress.PluginConfigOptions) => {
   mongo.configurePlugin(on);
-  require('@cypress/code-coverage/task')(on, config);
   return config
 }
 
