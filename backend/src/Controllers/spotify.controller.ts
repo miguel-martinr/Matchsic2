@@ -47,9 +47,7 @@ export const spotifyCallback = async (req: Request, res: Response) => {
     // eslint-disable-next-line max-len
     const spotifyCredentials = await spotifyService.getNewSpotifyCredentials(code as string);
     await UserModel.findByIdAndUpdate(req.body.id, {spotifyCredentials});
-    return res.status(200).json({
-      isSpotifyConnected: true,
-    });
+    return res.redirect('/');
   } catch (error: any) {
     return res.status(400).json({message: error.message});
   }
