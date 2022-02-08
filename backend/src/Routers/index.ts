@@ -8,7 +8,8 @@ import {getLogin,
   spotifyCallback,
   spotifyConnect,
   patchUserData,
-  amILoggedIn} from '../Controllers';
+  amILoggedIn,
+  logout} from '../Controllers';
 import {authorization} from '../Middleware';
 
 export const router = Router();
@@ -22,4 +23,4 @@ router.patch('/user/data', authorization, patchUserData);
 router.get('/music/login', authorization, spotifyConnect);
 router.get('/spotify-callback', authorization, spotifyCallback);
 router.get('/am-i-logged-in', authorization, amILoggedIn);
-
+router.get('/logout', authorization, logout);

@@ -6,3 +6,4 @@ export {spotifyConnect, spotifyCallback} from './spotify.controller';
 export {patchActiveData, postActiveData} from './activeData.controller';
 export {getNearUsers} from './getNearUsers.controller';
 export {amILoggedIn} from './loggedIn.controller';
+export {logout} from './logout.controller';

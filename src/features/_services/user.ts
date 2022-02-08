@@ -43,13 +43,7 @@ const login = (username: string, password: string) => {
 }
 
 const logout = () => {
-  return new Promise<void>((resolve, reject) => {
-    // Clear cookie
-    setTimeout(() => {
-      console.log('Sesión cerrada');
-      resolve();
-    }, 500);
-  });
+  return matchsicAxios.get('/logout');
 }
 
 const getData = () => {
