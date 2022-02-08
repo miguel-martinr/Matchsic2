@@ -3,10 +3,12 @@
   "version": "0.0.0",
   "scripts": {
     "dev": "vite --host",
-    "build": "tsc && vite build",
+    "build": "tsc && vite build && npm run backend/compile",
     "serve": "vite preview",
+    "start": "node dist/index.js",
     "backend/watch": "cd backend && tsc-watch --onSuccess \"node dist/index.js\"",
     "backend/start": "cd backend && node dist/index.js",
+    "backend/compile": "cd backend && tsc",
     "backend/compile-and-start": "cd backend && tsc && node dist/index.js",
     "backend/test": "cypress run --spec \"cypress/integration/backend/**/*.spec.ts\"",
     "fe-services/test": "cypress run --spec \"cypress/integration/src/features/services/**/*.spec.ts\"",
