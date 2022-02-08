@@ -57,18 +57,18 @@ const getCurrentlyPlaying = async (accessToken: string) => {
     accessToken,
   });
 
+  let currentlyPlaying = await spotify.player.getCurrentlyPlayingTrack();
+
+  if (typeof currentlyPlaying === 'string') return null;
+
+  if (!currentlyPlaying.item) return null;
+
   const response: MusicData = {
     authorsNames: [],
     coverImage: {url: '', width: 0, height: 0},
     status: 'stopped',
     trackName: 'Unknown',
   };
-
-  let currentlyPlaying = await spotify.player.getCurrentlyPlayingTrack();
-
-  if (typeof currentlyPlaying === 'string') return response;
-
-  if (!currentlyPlaying.item) return null;
 
   const defaultImage = 'https://imagenes.elpais.com/resizer/H5Nn0FsAAGyJ1GSMHxHG9GxmXNY=/1200x0/ep01.epimg.net/elpais/imagenes/2016/05/31/ciencia/1464687786_596536_1464698347_noticia_fotograma.jpg';
   currentlyPlaying = currentlyPlaying as CurrentlyPlaying;
