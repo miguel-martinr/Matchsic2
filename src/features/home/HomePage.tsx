@@ -4,7 +4,7 @@ import { MapContainer } from 'react-leaflet';
 import { ActiveUserInterface } from '../../../backend/src/Data/Models/activeUsers';
 import { UserData } from '../../types/user';
 import { useAppDispatch, useAppSelector } from '../store/hooks';
-import { setNearUsers } from '../store/storeSlice';
+import { setNearUsers, updateSession } from '../store/storeSlice';
 import { userService } from '../_services';
 import classes from './HomePage.module.css';
 import { LocateControl } from './MapControls/LocateControl';
@@ -15,7 +15,7 @@ export const HomePage = () => {
 
   let vh = window.innerHeight * 0.01;
   document.documentElement.style.setProperty('--vh', `${vh}px`);
-  const { nearUsers } = useAppSelector(state => state.matchsic);
+  const { nearUsers, userSession: {username} } = useAppSelector(state => state.matchsic);
   const dispatch = useAppDispatch();
 
   const [map, setMap] = useState<L.Map | null>(null);
@@ -30,7 +30,12 @@ export const HomePage = () => {
           userService.updateActiveData({ location })
             .then(() => {
               userService.getNearUsers()
-                .then(nearUsers => {
+                .then((nearUsers: ActiveUserInterface[]) => {
+                  
+                  const userIndex = nearUsers.findIndex(user => user.username === username);
+                  if (userIndex !== -1) {
+                    dispatch(updateSession(nearUsers.splice(userIndex, 1)[0]));
+                  }
                   dispatch(setNearUsers(nearUsers));
                 });
             });
@@ -68,3 +73,4 @@ export const HomePage = () => {
     </Container>
   )
 }
+

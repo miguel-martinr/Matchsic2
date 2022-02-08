@@ -66,10 +66,14 @@ const matchsicSlice = createSlice({
     setNearUsers(state, action: PayloadAction<UserData[]>) {
       state.nearUsers = action.payload;
     },
+
+    updateSession(state, action: PayloadAction<UserData>) {
+      state.userSession = action.payload;
+    },
   }
 });
 
 
 export const { sayHi, loggedIn, loggedOut, updateUser,
-userDataFetched, setNearUsers} = matchsicSlice.actions;
+userDataFetched, setNearUsers, updateSession} = matchsicSlice.actions;
 export default matchsicSlice.reducer;
