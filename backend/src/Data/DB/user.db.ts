@@ -1,6 +1,6 @@
 
 
-import { getProfileLinkService, getUserDataService } from '../../Services';
+import {getProfileLinkService, getUserDataService} from '../../Services';
 import {ShallowUser} from '../../types/user';
 import {ActiveUserInterface, ActiveUserModel} from '../Models/activeUsers';
 import {UserInterface, UserModel} from '../Models/user';

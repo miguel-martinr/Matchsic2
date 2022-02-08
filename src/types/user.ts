@@ -9,7 +9,7 @@ import {Image} from './util';
 export interface UserData {
   username: string,
   profileLink: string,
-  profilePicture: Image,
+  // profilePicture: Image,
   music: MusicData,
   location: LocationData,
 }

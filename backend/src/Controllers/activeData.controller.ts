@@ -1,7 +1,7 @@
 import {Request, Response} from 'express';
 import {ActiveUserInterface} from '../Data/Models/activeUsers';
 // eslint-disable-next-line max-len
-import {activeDataService, getProfileLinkService, getUserDataService} from '../Services';
+import {activeDataService, getProfileLinkService, getUserDataService, spotifyService} from '../Services';
 
 export const postActiveData = async (req: Request, res: Response) => {
   const error = {
@@ -55,6 +55,17 @@ export const patchActiveData = async (req: Request, res: Response) => {
       error.message = 'Error while updating active data';
       throw new Error(error.message);
     }
+
+    // Refresh music
+    // eslint-disable-next-line max-len
+    const {spotifyCredentials: {accessToken}} = await getUserDataService(activeDataUpdate.userId as string);
+
+    // eslint-disable-next-line max-len
+    const currentlyPlaying = await spotifyService.getCurrentlyPlaying(accessToken);
+
+    console.log(currentlyPlaying);
+    // eslint-disable-next-line max-len
+    if (currentlyPlaying !== null) await activeDataService.update({userId: req.body.id, music: currentlyPlaying});
 
     return res.status(200).json({
       message: 'Active data has been updated',
