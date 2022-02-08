@@ -27,9 +27,9 @@ app.use('/', express.static('public'));
 app.use(router);
 
 // Default
-app.all('*', (req, res) => {
-  return res.redirect('/');
-});
+// app.all('*', (req, res) => {
+//   return res.redirect('/');
+// });
 
 
 const port = process.env.PORT || 3000;
