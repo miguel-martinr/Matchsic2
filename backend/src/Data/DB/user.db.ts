@@ -1,5 +1,6 @@
 
 
+import {getProfileLinkService, getUserDataService} from '../../Services';
 import {ShallowUser} from '../../types/user';
 import {ActiveUserInterface, ActiveUserModel} from '../Models/activeUsers';
 import {UserInterface, UserModel} from '../Models/user';
@@ -70,6 +71,16 @@ const updateActiveData = async (user: Partial<ActiveUserInterface>) => {
     if (userExists) {
       // eslint-disable-next-line max-len
       return await ActiveUserModel.findOneAndUpdate({userId: user.userId}, user, {new: true}).select('-_id -__v -userId');
+    } else {
+      // eslint-disable-next-line max-len
+      const {username} = await getUserDataService(user.userId as string);
+      const profileLink = getProfileLinkService(username);
+
+      user.username = username;
+      user.profileLink = profileLink;
+
+      const activeUser = new ActiveUserModel(user as ActiveUserInterface);
+      return await activeUser.save();
     }
   } catch (err: any) {
     const errorMessage = err.message || 'unknown';

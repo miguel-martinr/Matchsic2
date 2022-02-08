@@ -1,3 +1,5 @@
+import { ActiveUserInterface } from "../../../backend/src/Data/Models/activeUsers";
+import { LocationData } from "../../../backend/src/types/location";
 import { matchsicAxios } from "./Axios/axios";
 
 
@@ -74,7 +76,7 @@ const register = (data :userDataRegister) => {
 
 const amILoggedIn = async () => {
   const response = await  matchsicAxios.get('/am-i-logged-in');
-  return response.data.userData;
+  return response.data;
 }
 
 const update = (data :userDataUpdate) => {
@@ -92,6 +94,26 @@ const update = (data :userDataUpdate) => {
   });
 }
 
+const getNearUsers = async () => {
+  const response = await matchsicAxios.get('/near-users');
+  return response.data.nearUsers;
+}
+
+const updateActiveData = async (data: Partial<ActiveUserInterface>) => {
+  return matchsicAxios.patch('/user/active-data', {activeData: data});
+}
+
+const getLocationFromBrowser = async () => {
+  return new Promise<LocationData> ((resolve, reject) => {
+    if (!navigator) {
+      reject('Allow browser to get your location');
+    }
+    navigator.geolocation.getCurrentPosition(({coords}) => {
+      resolve({coordinates: {latitude: coords.latitude, longitude: coords.longitude}});
+    }, (reason) => reject(reason));
+  });
+}
+
 export const userService = {
   login,
   logout,
@@ -99,4 +121,7 @@ export const userService = {
   register,
   update,
   amILoggedIn,
+  getNearUsers,
+  updateActiveData,
+  getLocationFromBrowser,
 }

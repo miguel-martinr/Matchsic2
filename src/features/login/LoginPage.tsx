@@ -38,9 +38,10 @@ export const LoginPage = (props: LoginPageProps) => {
   });
 
   useEffect(() => {
-    userService.amILoggedIn().then((userData) => {
+    userService.amILoggedIn().then(data => {
       dispatch(loggedIn());
-      dispatch(userDataFetched(userData));
+      dispatch(userDataFetched(data.userData));
+      // if (!data.isSpotifyLoggedIn) window.location.href = '/music/login';
     }).catch(() => {
 
     });

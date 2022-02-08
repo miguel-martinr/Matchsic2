@@ -27,6 +27,21 @@
     font-weight: bold;
 }
 
+.ButtonConnectSpotify {
+  size: 10px;
+  float: right;
+  color: #0BA55D;
+  border-radius: 100px;
+  border: none;
+  width: 7em;
+  height: 4em;
+  font-weight: bold;
+}
+
+.ButtonConnectSpotify:hover{
+  color: black;
+}
+
 .ButtonEditProfile:hover{
     color: black;
 }

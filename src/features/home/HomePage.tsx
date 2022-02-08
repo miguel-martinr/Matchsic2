@@ -1,7 +1,11 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Col, Container, Row } from 'react-bootstrap';
-import { MapContainer, Marker, Popup, TileLayer } from 'react-leaflet';
-import { useAppSelector } from '../store/hooks';
+import { MapContainer } from 'react-leaflet';
+import { ActiveUserInterface } from '../../../backend/src/Data/Models/activeUsers';
+import { UserData } from '../../types/user';
+import { useAppDispatch, useAppSelector } from '../store/hooks';
+import { setNearUsers } from '../store/storeSlice';
+import { userService } from '../_services';
 import classes from './HomePage.module.css';
 import { LocateControl } from './MapControls/LocateControl';
 import { MatchsicTile } from './MatchsicTile';
@@ -11,9 +15,30 @@ export const HomePage = () => {
 
   let vh = window.innerHeight * 0.01;
   document.documentElement.style.setProperty('--vh', `${vh}px`);
-  
-  const { userSession } = useAppSelector(state => state.matchsic);
+  const { nearUsers } = useAppSelector(state => state.matchsic);
+  const dispatch = useAppDispatch();
+
   const [map, setMap] = useState<L.Map | null>(null);
+  const [nUsers, setNusers] = useState<UserData[]>([]);
+
+  useEffect(() => {
+    // Set location
+    // Set near users
+    setInterval(async () => {
+      userService.getLocationFromBrowser()
+        .then(location => {
+          userService.updateActiveData({ location })
+            .then(() => {
+              userService.getNearUsers()
+                .then(nearUsers => {
+                  dispatch(setNearUsers(nearUsers));
+                  setNusers(nearUsers);
+                });
+            });
+        });
+    }, 5000);
+  }, []);
+
   return (
     <Container fluid>
       <Row>
@@ -27,9 +52,15 @@ export const HomePage = () => {
           >
             <MatchsicTile />
 
-            <UserMarker
-              user={userSession} //temp
-            />
+            {
+              nUsers.map(nearUser => {
+
+                return <UserMarker
+                  user={nearUser}
+                  key={nearUser.username}
+                />
+              })
+            }
 
             <LocateControl map={map}></LocateControl>
           </MapContainer>

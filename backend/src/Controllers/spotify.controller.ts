@@ -16,9 +16,7 @@ export const spotifyConnect = async (req: Request, res: Response) => {
 
     if (spotifyCredentials.expirationTime > Date.now()) {
       // Token is still valid
-      return res.status(200).json({
-        isSpotifyConnected: true,
-      });
+      return res.redirect('/');
     }
 
     // Token is expired
@@ -32,9 +30,7 @@ export const spotifyConnect = async (req: Request, res: Response) => {
 
     // eslint-disable-next-line max-len
     await spotifyService.refreshAndUpdateToken(req.body.id, spotifyCredentials.refreshToken);
-    return res.status(200).json({
-      isSpotifyConnected: true,
-    });
+    return res.redirect('/');
   } catch (error: any) {
     return res.status(400).json({
       isSpotifyConnected: false,

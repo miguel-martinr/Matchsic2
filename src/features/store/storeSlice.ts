@@ -15,7 +15,7 @@ const initialState: MatchsicState = {
   userProfile: { name: '', username: '' , description: '', musicPreference: [] , socialNetwork: []},
   userSession: {
     username: 'Lena_00', profileLink: '',
-    profilePicture: { url: '', width: 0, height: 0 },
+    // profilePicture: { url: '', width: 0, height: 0 },
     music: { trackName: 'The Rover', authorsNames: ['Led Zeppelin'], coverImage: { url: 'https://extrachill.com/wp-content/uploads/2021/03/led-zeppelin-logos.jpeg', width: 0, height: 0 }, status: 'stopped' },
     location: { coordinates: { latitude: 28.47762873997604, longitude: -16.312475617040874 } }
   },
@@ -62,10 +62,14 @@ const matchsicSlice = createSlice({
       state.userProfile.description = description;
       state.userProfile.musicPreference = musicPreference;
     },
+
+    setNearUsers(state, action: PayloadAction<UserData[]>) {
+      state.nearUsers = action.payload;
+    },
   }
 });
 
 
 export const { sayHi, loggedIn, loggedOut, updateUser,
-userDataFetched} = matchsicSlice.actions;
+userDataFetched, setNearUsers} = matchsicSlice.actions;
 export default matchsicSlice.reducer;

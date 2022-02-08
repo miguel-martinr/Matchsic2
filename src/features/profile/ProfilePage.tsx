@@ -5,6 +5,7 @@ import { MatchsicButtonLinkto } from '../utils/MatchsicButtonLinkto';
 import {MatchsicProfileImage} from '../utils/MatchsicProfileImage';
 import {MatchsicUserInfo} from '../utils/MatchsicCardUserInfo';
 import { useAppSelector } from '../store/hooks';
+import { MatchsicButton } from '../utils/MatchsicButton';
 
 
 interface userProfile {
@@ -45,7 +46,13 @@ export const ProfilePage = () => {
                     <Row  className='pt-5'></Row>
                     <Row  className='pt-5'></Row>
                 </Col>
-                <Col></Col>
+                <Col>
+                <MatchsicButton 
+                  text={"Conectar Spotify"} 
+                  className={classes.ButtonConnectSpotify} 
+                  onClick={() => {window.location.href = '/music/login'}}
+                />
+                </Col>
         </Row> 
     </Container>
     )
