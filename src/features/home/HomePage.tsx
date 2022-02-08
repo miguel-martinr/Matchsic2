@@ -48,8 +48,8 @@ export const HomePage = () => {
       <Row>
         <Col className={"text-center " + classes.gray_background}>
           <MapContainer
-            // center={[28.47762873997604, -16.312475617040874]}
-            // zoom={13}
+            center={map?.getCenter() || [28.47762873997604, -16.312475617040874]}
+            zoom={13}
             scrollWheelZoom={true}
             className={classes.map}
             whenCreated={(map) => setMap(map)}
