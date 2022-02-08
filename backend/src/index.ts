@@ -3,6 +3,7 @@ import {connectDB} from './Data/DB/connect.db';
 import {router} from './Routers';
 import dotenv from 'dotenv';
 import cookieParser from 'cookie-parser';
+import * as path from 'path';
 
 dotenv.config({path: '../.env'});
 
@@ -20,7 +21,7 @@ const allowedOrigins = [
 app.use(express.urlencoded({extended: true}));
 app.use(cookieParser());
 
-app.use(express.static(__dirname + '/public'));
+app.use(express.static(path.join(__dirname, '../public')));
 
 app.use(router);
 
