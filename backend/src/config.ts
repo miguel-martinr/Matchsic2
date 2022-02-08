@@ -1,3 +1,3 @@
 export const config = {
-  mode: 'development',
+  mode: 'prodcution',
 };
