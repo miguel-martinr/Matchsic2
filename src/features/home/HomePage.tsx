@@ -34,7 +34,7 @@ export const HomePage = () => {
                   
                   const userIndex = nearUsers.findIndex(user => user.username === username);
                   if (userIndex !== -1) {
-                    dispatch(updateSession(nearUsers.splice(userIndex, 1)[0]));
+                    dispatch(updateSession(nearUsers[userIndex]));
                   }
                   dispatch(setNearUsers(nearUsers));
                 });
