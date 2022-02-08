@@ -36,7 +36,7 @@ const refreshAndUpdateToken = async (userId: string, refreshToken: string): Prom
   const {access_token: accessToken,
     expires_in: expiresIn} = refreshedTokenResponse;
 
-  UserModel.findByIdAndUpdate(userId, {
+  await UserModel.findByIdAndUpdate(userId, {
     spotifyCredentials: {
       accessToken,
       expirationTime: Date.now() + expiresIn * 1000,

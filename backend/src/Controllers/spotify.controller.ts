@@ -29,6 +29,7 @@ export const spotifyConnect = async (req: Request, res: Response) => {
     }
 
     // There's a refresh token, so we can refresh the token
+
     // eslint-disable-next-line max-len
     await spotifyService.refreshAndUpdateToken(req.body.id, spotifyCredentials.refreshToken);
     return res.status(200).json({
