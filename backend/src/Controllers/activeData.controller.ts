@@ -60,10 +60,15 @@ export const patchActiveData = async (req: Request, res: Response) => {
     // eslint-disable-next-line max-len
     const {spotifyCredentials: {accessToken}} = await getUserDataService(activeDataUpdate.userId as string);
 
-    // eslint-disable-next-line max-len
-    const currentlyPlaying = await spotifyService.getCurrentlyPlaying(accessToken);
+    let currentlyPlaying;
+    try {
+      // eslint-disable-next-line max-len
+      currentlyPlaying = await spotifyService.getCurrentlyPlaying(accessToken);
+      console.log(currentlyPlaying);
+    } catch (reason) {
+      console.log(`Error while refreshing music: `, reason);
+    }
 
-    console.log(currentlyPlaying);
     // eslint-disable-next-line max-len
     if (currentlyPlaying !== null) await activeDataService.update({userId: req.body.id, music: currentlyPlaying});
 
