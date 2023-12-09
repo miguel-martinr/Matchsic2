@@ -1,9 +1,7 @@
 
 import mongoose from 'mongoose';
-import dotenv from 'dotenv';
 import {config} from '../../config';
 
-dotenv.config({path: '../.env'});
 
 let databaseURL = '';
 if (config.mode === 'development') {

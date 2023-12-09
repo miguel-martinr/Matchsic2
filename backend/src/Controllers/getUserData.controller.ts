@@ -1,9 +1,7 @@
 import {Request, Response} from 'express';
 import {getUserDataService} from '../Services';
 
-import dotenv from 'dotenv';
 
-dotenv.config({path: '../.env'});
 
 export const getUserData = async (req: Request, res: Response) => {
   try {

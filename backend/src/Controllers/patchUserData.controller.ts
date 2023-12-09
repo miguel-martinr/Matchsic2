@@ -1,9 +1,7 @@
 import {Request, Response} from 'express';
 import {patchUserDataService} from '../Services';
 
-import dotenv from 'dotenv';
 
-dotenv.config({path: '../.env'});
 
 export const patchUserData = async (req: Request, res: Response) => {
   try {

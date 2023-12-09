@@ -6,7 +6,7 @@ import {MatchsicProfileImage} from '../utils/MatchsicProfileImage';
 import {MatchsicUserInfo} from '../utils/MatchsicCardUserInfo';
 import { useAppSelector } from '../store/hooks';
 import { MatchsicButton } from '../utils/MatchsicButton';
-
+import { userService } from '../_services/user';
 
 interface userProfile {
     name :string,
@@ -50,7 +50,7 @@ export const ProfilePage = () => {
                 <MatchsicButton 
                   text={"Conectar Spotify"} 
                   className={classes.ButtonConnectSpotify} 
-                  onClick={() => {window.location.href = '/music/login'}}
+                  onClick={() => {userService.connectSpotify()}}
                 />
                 </Col>
         </Row> 

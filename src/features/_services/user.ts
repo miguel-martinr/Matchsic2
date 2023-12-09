@@ -108,6 +108,10 @@ const getLocationFromBrowser = async () => {
   });
 }
 
+const connectSpotify = () => {
+  window.location.href = 'http://localhost:3000/music/login';
+}
+
 export const userService = {
   login,
   logout,
@@ -118,4 +122,5 @@ export const userService = {
   getNearUsers,
   updateActiveData,
   getLocationFromBrowser,
+  connectSpotify,
 }

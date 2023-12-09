@@ -2,9 +2,7 @@ import {Request, Response} from 'express';
 import jwt from 'jsonwebtoken';
 import {verifyUserService} from '../Services';
 
-import dotenv from 'dotenv';
 
-dotenv.config({path: '../.env'});
 
 export const getLogin = async (req: Request, res: Response) => {
   try {

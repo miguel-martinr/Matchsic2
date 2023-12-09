@@ -1,11 +1,18 @@
+import dotenv from 'dotenv';
+import * as path from 'path';
+
+const ENV_FILE_PATH = path.join(__dirname, '../.env');
+
+dotenv.config({path: ENV_FILE_PATH});
+
+
 import express from 'express';
 import {connectDB} from './Data/DB/connect.db';
 import {router} from './Routers';
-import dotenv from 'dotenv';
 import cookieParser from 'cookie-parser';
-import * as path from 'path';
 
-dotenv.config({path: '../.env'});
+
+import cors from 'cors';
 
 
 const app = express();
@@ -17,7 +24,7 @@ const allowedOrigins = [
 ];
 
 
-// app.use(cors({credentials: true, origin: allowedOrigins}));
+app.use(cors({credentials: true, origin: allowedOrigins}));
 app.use(express.urlencoded({extended: true}));
 app.use(cookieParser());
 

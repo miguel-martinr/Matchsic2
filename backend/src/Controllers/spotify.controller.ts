@@ -2,12 +2,12 @@ import {Request, Response} from 'express';
 
 // eslint-disable-next-line max-len
 import {AuthorizationScope} from 'spotify-web-api-ts/types/types/SpotifyAuthorization';
-import dotenv from 'dotenv';
+
 import {db} from '../Data/DB';
 import {UserModel} from '../Data/Models';
 import {spotifyService} from '../Services';
 
-dotenv.config({path: '../.env'});
+
 
 export const spotifyConnect = async (req: Request, res: Response) => {
   try {

@@ -3,7 +3,7 @@ import { store } from '../../store/store';
 import { loggedOut } from "../../store/storeSlice";
 
 export const matchsicAxios = axios.create({
-  baseURL: 'https://matchsic2.herokuapp.com',
+  baseURL: 'http://localhost:3000/',
   withCredentials: true,
 });
 
