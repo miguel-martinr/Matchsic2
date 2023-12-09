@@ -1,6 +1,7 @@
 {
   "name": "matchsic",
   "version": "0.0.0",
+  "type": "module",
   "scripts": {
     "dev": "vite --host",
     "build": "tsc && vite build && npm run backend/compile",
