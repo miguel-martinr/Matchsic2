@@ -6,5 +6,8 @@ export default defineConfig({
   plugins: [reactRefresh()],
   build: {
     outDir: './backend/public',
+  },
+  server: {
+    port: 3001,
   }
 })

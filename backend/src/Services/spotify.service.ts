@@ -64,7 +64,9 @@ const getCurrentlyPlaying = async (accessToken: string) => {
     trackName: 'Unknown',
   };
 
-  let currentlyPlaying = await spotify.player.getCurrentlyPlayingTrack();
+  let currentlyPlaying = await spotify.player.getCurrentlyPlayingTrack({
+    market: 'ES'
+  });
 
   if (typeof currentlyPlaying === 'string') return response;
 

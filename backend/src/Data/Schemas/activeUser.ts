@@ -1,6 +1,7 @@
-import * as mongoose from 'mongoose';
+import mongoose from 'mongoose';
 
 const defaultImageUrl = 'https://imagenes.elpais.com/resizer/H5Nn0FsAAGyJ1GSMHxHG9GxmXNY=/1200x0/ep01.epimg.net/elpais/imagenes/2016/05/31/ciencia/1464687786_596536_1464698347_noticia_fotograma.jpg';
+
 export const ActiveUserSchema = new mongoose.Schema({
   userId: {type: String, required: true, unique: true},
   username: {type: String, required: true},

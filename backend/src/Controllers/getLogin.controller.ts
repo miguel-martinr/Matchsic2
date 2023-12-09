@@ -2,13 +2,11 @@ import {Request, Response} from 'express';
 import jwt from 'jsonwebtoken';
 import {verifyUserService} from '../Services';
 
-import dotenv from 'dotenv';
-
-dotenv.config({path: '../.env'});
+const ACCESS_TOKEN_COOCKIE_NAME = 'access-token';
 
 export const getLogin = async (req: Request, res: Response) => {
   try {
-    res.clearCookie('access_token');
+    res.clearCookie(ACCESS_TOKEN_COOCKIE_NAME);
     const {user} = req.body;
     console.log(req.body);
     if (!user) throw new Error('Empty JSON');
@@ -21,8 +19,9 @@ export const getLogin = async (req: Request, res: Response) => {
     const token = jwt.sign({id: existingUser._id}, (process.env.JWT_SECRET) as string, {
       expiresIn: '30m',
     });
+
     return res
-        .cookie('access-token', token, {
+        .cookie(ACCESS_TOKEN_COOCKIE_NAME, token, {
           httpOnly: true,
         })
         .status(200)

@@ -1,4 +1,4 @@
-import * as mongoose from 'mongoose';
+import mongoose from 'mongoose';
 import {LocationData} from '../../types/location';
 import {MusicData} from '../../types/music';
 import {ActiveUserSchema} from '../Schemas/activeUser';
